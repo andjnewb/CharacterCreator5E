@@ -29,50 +29,20 @@ namespace CharacterCreator5E
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.CreateNewCharacter = new System.Windows.Forms.Button();
             this.SuspendLayout();
-            // 
-            // textBox1
-            // 
-            this.textBox1.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.textBox1.Enabled = false;
-            this.textBox1.Font = new System.Drawing.Font("Segoe UI Semibold", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.textBox1.Location = new System.Drawing.Point(223, 17);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(329, 47);
-            this.textBox1.TabIndex = 0;
-            this.textBox1.Text = "5E Character Creator";
-            // 
-            // CreateNewCharacter
-            // 
-            this.CreateNewCharacter.Location = new System.Drawing.Point(297, 100);
-            this.CreateNewCharacter.Name = "CreateNewCharacter";
-            this.CreateNewCharacter.Size = new System.Drawing.Size(155, 26);
-            this.CreateNewCharacter.TabIndex = 1;
-            this.CreateNewCharacter.Text = "Create A Character";
-            this.CreateNewCharacter.UseVisualStyleBackColor = true;
-            this.CreateNewCharacter.Click += new System.EventHandler(this.CreateNewCharacter_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.CreateNewCharacter);
-            this.Controls.Add(this.textBox1);
             this.Name = "Form1";
             this.Text = "5E Character Creator";
-            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button CreateNewCharacter;
     }
 }
 
