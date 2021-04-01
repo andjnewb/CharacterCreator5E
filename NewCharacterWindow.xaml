@@ -1,0 +1,75 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GroupProject5ECharCreator"
+        xmlns:_5EDatabaseDataSetTableAdapters="clr-namespace:GroupProject5ECharCreator._5EDatabaseDataSetTableAdapters" x:Class="GroupProject5ECharCreator.NewCharacterWindow"
+        mc:Ignorable="d"
+        Title="NewCharacterWindow" Height="450" Width="800" Loaded="Window_Loaded">
+    <Window.Resources>
+        <local:_5EDatabaseDataSet x:Key="_5EDatabaseDataSet"/>
+        <CollectionViewSource x:Key="classesViewSource" Source="{Binding Classes, Source={StaticResource _5EDatabaseDataSet}}"/>
+        <CollectionViewSource x:Key="racesViewSource" Source="{Binding Races, Source={StaticResource _5EDatabaseDataSet}}"/>
+        <local:_5EDatabaseDataSet1 x:Key="_5EDatabaseDataSet1"/>
+        <CollectionViewSource x:Key="classesViewSource1" Source="{Binding Classes, Source={StaticResource _5EDatabaseDataSet1}}"/>
+        <CollectionViewSource x:Key="racesViewSource1" Source="{Binding Races, Source={StaticResource _5EDatabaseDataSet1}}"/>
+    </Window.Resources>
+    <Grid DataContext="{StaticResource classesViewSource}">
+        <Grid x:Name="grid1" DataContext="{StaticResource racesViewSource}" HorizontalAlignment="Left" Margin="85,96,0,0" VerticalAlignment="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+        </Grid>
+        <Grid x:Name="grid2" DataContext="{StaticResource classesViewSource1}" HorizontalAlignment="Left" Margin="24,64,0,0" VerticalAlignment="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Label Content="Class:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
+            <ComboBox x:Name="classComboBox" Grid.Column="1" DisplayMemberPath="Class" HorizontalAlignment="Left" Height="Auto" ItemsSource="{Binding}" Margin="3" Grid.Row="0" VerticalAlignment="Center" Width="120" SelectionChanged="classComboBox_SelectionChanged">
+                <ComboBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <VirtualizingStackPanel/>
+                    </ItemsPanelTemplate>
+                </ComboBox.ItemsPanel>
+            </ComboBox>
+        </Grid>
+        <Grid x:Name="grid3" DataContext="{StaticResource racesViewSource1}" HorizontalAlignment="Left" Margin="25,110,0,0" VerticalAlignment="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+        </Grid>
+        <Grid x:Name="grid4" DataContext="{StaticResource racesViewSource1}" HorizontalAlignment="Left" Margin="25,110,0,0" VerticalAlignment="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Label Content="Race:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
+            <ComboBox x:Name="raceComboBox" Grid.Column="1" DisplayMemberPath="Race" HorizontalAlignment="Left" Height="Auto" ItemsSource="{Binding}" Margin="3" Grid.Row="0" VerticalAlignment="Center" Width="120">
+                <ComboBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <VirtualizingStackPanel/>
+                    </ItemsPanelTemplate>
+                </ComboBox.ItemsPanel>
+            </ComboBox>
+        </Grid>
+    </Grid>
+</Window>
