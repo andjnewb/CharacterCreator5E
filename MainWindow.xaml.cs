@@ -1,18 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Data;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+﻿using System.Windows;
 
 namespace GroupProject5ECharCreator
 {
@@ -21,8 +7,6 @@ namespace GroupProject5ECharCreator
     /// </summary>
     public partial class MainWindow : Window
     {
-        
-
 
         public MainWindow()
         {
@@ -33,6 +17,7 @@ namespace GroupProject5ECharCreator
         {
             NewCharacterWindow newCharacterWindow = new NewCharacterWindow();
             newCharacterWindow.Show();
+
         }
     }
 }
