@@ -8,7 +8,7 @@ using System.Security.Cryptography;
 
 namespace GroupProject5ECharCreator
 {
-
+    [Serializable]
     public class CharacterClass
     {
         //Contains all of the information about the character being created. The class at the end has nothing to do with DND classes, and that probably wasn't the best name to pick.
@@ -30,6 +30,8 @@ namespace GroupProject5ECharCreator
 
         public void changeClass(string ChangeTo)
         {
+
+            //this sucks asshole, need to do something about it.
             if (ChangeTo == "Barbarian")
             {
                 ClassData = new Barbarian();

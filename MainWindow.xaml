@@ -6,6 +6,9 @@
         xmlns:local="clr-namespace:GroupProject5ECharCreator"
         mc:Ignorable="d"
         Title="5E Character Creator" Height="450" Width="800">
-    <Button x:Name="CreateCharButton" Content="Create Character" HorizontalAlignment="Left" Height="69" Margin="288,89,0,0" VerticalAlignment="Top" Width="165" Click="Button_Click"/>
+    <Grid HorizontalAlignment="Left" Height="418" VerticalAlignment="Top" Width="790">
+        <Button x:Name="Create_A_Character_Button" Content="Create A Character" HorizontalAlignment="Left" Margin="294,78,0,0" VerticalAlignment="Top" Width="161" Height="58" Click="Create_A_Character_Button_Click"/>
+        <Button x:Name="Load_A_Character_Button" Content="Load A Character" HorizontalAlignment="Left" Margin="294,141,0,0" VerticalAlignment="Top" Width="161" Height="55" Click="Load_A_Character_Button_Click"/>
+    </Grid>
 
 </Window>

@@ -13,11 +13,16 @@ namespace GroupProject5ECharCreator
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Create_A_Character_Button_Click(object sender, RoutedEventArgs e)
         {
-            NewCharacterWindow newCharacterWindow = new NewCharacterWindow();
-            newCharacterWindow.Show();
+            Window newChar = new NewCharacterWindow();
+            newChar.Show();
+        }
 
+        private void Load_A_Character_Button_Click(object sender, RoutedEventArgs e)
+        {
+            Window loadChar = new ViewCharacter();
+            loadChar.Show();
         }
     }
 }

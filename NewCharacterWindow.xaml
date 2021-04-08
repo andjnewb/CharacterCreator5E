@@ -34,5 +34,6 @@
         <TextBlock x:Name="CharismaTextBlock" HorizontalAlignment="Left" Margin="501,205,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="66"/>
         <Label x:Name="CharismaLabel" Content="Charisma" HorizontalAlignment="Left" Margin="441,204,0,0" VerticalAlignment="Top" FontSize="10"/>
         <TextBlock x:Name="ContextInfoTextBlock" HorizontalAlignment="Left" Margin="621,44,0,0" TextWrapping="Wrap" Text="Select a field or statistics for more information." VerticalAlignment="Top" RenderTransformOrigin="0.707,1.083" Height="183" Width="146" FontSize="10"/>
+        <Button x:Name="SaveProgressButton" Content="Save progress" HorizontalAlignment="Left" Margin="705,392,0,0" VerticalAlignment="Top" Width="75" Click="SaveProgressButton_Click"/>
     </Grid>
 </Window>

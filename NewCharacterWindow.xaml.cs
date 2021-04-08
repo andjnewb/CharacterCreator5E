@@ -1,5 +1,8 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.IO;
 
 namespace GroupProject5ECharCreator
 {
@@ -75,6 +78,19 @@ namespace GroupProject5ECharCreator
             IntelligenceTextBlock.Text = CharContainer.characterClass.Intelligence.ToString();
             WisdomTextBlock.Text = CharContainer.characterClass.Wisdom.ToString();
             CharismaTextBlock.Text = CharContainer.characterClass.Charisma.ToString();
+        }
+
+        private void SaveContainer()
+        {
+            IFormatter formatter = new BinaryFormatter();
+            Stream stream = new FileStream(CharContainer.CharName + ".sav", FileMode.Create, FileAccess.Write, FileShare.None);
+            formatter.Serialize(stream, CharContainer);
+            stream.Close();
+        }
+
+        private void SaveProgressButton_Click(object sender, RoutedEventArgs e)
+        {
+            SaveContainer();
         }
     }
 }

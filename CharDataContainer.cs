@@ -3,9 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
 
 namespace GroupProject5ECharCreator
 {
+    [Serializable]
     public class CharDataContainer
     {
         //This class holds the members and function related to a "character", represented in the form of a character sheet.
@@ -30,9 +33,7 @@ namespace GroupProject5ECharCreator
             characterClass.Roll();
         }
 
-
-
-
-
+        
     }
+
 }

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace GroupProject5ECharCreator
 {
+    
     public interface IClass
     {
         //Interface for the actual concrete classes.
@@ -18,6 +19,7 @@ namespace GroupProject5ECharCreator
         string classDescription { get; }
     }
 
+    [Serializable]
     public class Barbarian : IClass
     {
         //Concrete class for the DND barbarian
@@ -36,6 +38,7 @@ namespace GroupProject5ECharCreator
         }
     }
 
+    [Serializable]
     public class Bard : IClass
     {
         //Concrete class for the DND barbarian
@@ -54,6 +57,7 @@ namespace GroupProject5ECharCreator
         }
     }
 
+    [Serializable]
     public class Cleric : IClass
     {
         public int strengthModifier { get; set; }
@@ -69,6 +73,7 @@ namespace GroupProject5ECharCreator
         { }
     }
 
+    [Serializable]
     public class Druid : IClass
     {
         public int strengthModifier { get; set; }
@@ -87,6 +92,7 @@ namespace GroupProject5ECharCreator
 
     }
 
+    [Serializable]
     public class Fighter : IClass
     {
         public int strengthModifier { get; set; }
@@ -104,7 +110,7 @@ namespace GroupProject5ECharCreator
         }
     }
 
-
+    [Serializable]
     public class Monk : IClass
     {
         public int strengthModifier { get; set; }
@@ -122,6 +128,7 @@ namespace GroupProject5ECharCreator
         }
     }
 
+    [Serializable]
     public class Paladin : IClass
     {
         public int strengthModifier { get; set; }
@@ -139,6 +146,7 @@ namespace GroupProject5ECharCreator
         }
     }
 
+    [Serializable]
     public class Ranger : IClass
     {
         public int strengthModifier { get; set; }
@@ -156,6 +164,7 @@ namespace GroupProject5ECharCreator
         }
     }
 
+    [Serializable]
     public class Rogue : IClass
     {
         public int strengthModifier { get; set; }
@@ -173,6 +182,7 @@ namespace GroupProject5ECharCreator
         }
     }
 
+    [Serializable]
     public class Sorcerer : IClass
     {
         public int strengthModifier { get; set; }
@@ -190,6 +200,7 @@ namespace GroupProject5ECharCreator
         }
     }
 
+    [Serializable]
     public class Warlock : IClass
     {
         public int strengthModifier { get; set; }
@@ -207,6 +218,7 @@ namespace GroupProject5ECharCreator
         }
     }
 
+    [Serializable]
     public class Wizard : IClass
     {
         public int strengthModifier { get; set; }
