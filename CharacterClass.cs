@@ -21,17 +21,21 @@ namespace GroupProject5ECharCreator
         public int Wisdom;
         public int Charisma;
         public IClass ClassData;//Contains all of the information related to this character's DND class
+        public string ClassName;//Name of the class, may remove later
         private static RNGCryptoServiceProvider rngGen = new RNGCryptoServiceProvider();
 
         public CharacterClass()
         {
             ClassData = new Barbarian();
+            ClassName = "Barbarian";
         }
 
         public void changeClass(string ChangeTo)
         {
 
-            //this sucks asshole, need to do something about it.
+
+            ClassName = ChangeTo;
+
             if (ChangeTo == "Barbarian")
             {
                 ClassData = new Barbarian();
@@ -40,26 +44,31 @@ namespace GroupProject5ECharCreator
             if (ChangeTo == "Bard")
             {
                 ClassData = new Bard();
+
             }
 
             if (ChangeTo == "Cleric")
             {
                 ClassData = new Cleric();
+
             }
 
             if (ChangeTo == "Druid")
             {
                 ClassData = new Druid();
+
             }
 
             if (ChangeTo == "Fighter")
             {
                 ClassData = new Fighter();
+
             }
 
             if (ChangeTo == "Monk")
             {
                 ClassData = new Monk();
+
             }
 
             if (ChangeTo == "Paladin")

@@ -52,8 +52,15 @@ namespace GroupProject5ECharCreator
                 stream.Close();
             }
 
+            //Now that we have the object, we can begin filling the information in the window
             NameLabel.Content = charDataContainer.CharName;
-
+            Strength_Display_Box.Text = charDataContainer.characterClass.Strength.ToString();
+            Dexterity_Display_Box.Text = charDataContainer.characterClass.Dexterity.ToString();
+            Constitution_Display_Box.Text = charDataContainer.characterClass.Constitution.ToString();
+            Intelligence_Display_Box.Text = charDataContainer.characterClass.Intelligence.ToString();
+            Wisdom_Display_Box.Text = charDataContainer.characterClass.Wisdom.ToString();
+            Charisma_Display_Box.Text = charDataContainer.characterClass.Charisma.ToString();
+            Class_Display_Box.Text = charDataContainer.characterClass.ClassName;
 
         }
     }

@@ -10,6 +10,22 @@
         <Button x:Name="LoadCharacterButton" Content="Load" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75" Click="LoadCharacterButton_Click"/>
         <Label x:Name="NameLabel" Content="Name:" HorizontalAlignment="Left" Margin="254,12,0,0" VerticalAlignment="Top"/>
         <TextBlock x:Name="NameTextBlock" HorizontalAlignment="Left" Margin="315,17,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <TextBlock x:Name="StrengthTextBlock" HorizontalAlignment="Left" Margin="10,53,0,0" TextWrapping="Wrap" Text="Strength" VerticalAlignment="Top" FontSize="14" FontFamily="MV Boli" FontWeight="Bold"/>
+        <TextBlock x:Name="DexterityTextBlock" HorizontalAlignment="Left" Margin="10,76,0,0" TextWrapping="Wrap" Text="Dexterity" VerticalAlignment="Top" FontSize="14" FontFamily="MV Boli" FontWeight="Bold"/>
+        <TextBlock x:Name="ConstitutionTextBlock" HorizontalAlignment="Left" Margin="10,99,0,0" TextWrapping="Wrap" Text="Constitution" VerticalAlignment="Top" FontSize="14" FontFamily="MV Boli" FontWeight="Bold"/>
+        <TextBlock x:Name="IntelligenceTextBlock" HorizontalAlignment="Left" Margin="10,122,0,0" TextWrapping="Wrap" Text="Intelligence" VerticalAlignment="Top" FontSize="14" FontFamily="MV Boli" FontWeight="Bold"/>
+        <TextBlock x:Name="WisdomTextBlock" HorizontalAlignment="Left" Margin="10,145,0,0" TextWrapping="Wrap" Text="Wisdom" VerticalAlignment="Top" FontSize="14" FontFamily="MV Boli" FontWeight="Bold"/>
+        <TextBlock x:Name="CharismaTextBlock" HorizontalAlignment="Left" Margin="10,168,0,0" TextWrapping="Wrap" Text="Charisma" VerticalAlignment="Top" FontSize="14" FontFamily="MV Boli" FontWeight="Bold"/>
+        <TextBlock x:Name="Strength_Display_Box" HorizontalAlignment="Left" Margin="109,53,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="49"/>
+        <TextBlock x:Name="Dexterity_Display_Box" HorizontalAlignment="Left" Margin="109,76,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="49"/>
+        <TextBlock x:Name="Constitution_Display_Box" HorizontalAlignment="Left" Margin="109,97,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="49"/>
+        <TextBlock x:Name="Intelligence_Display_Box" HorizontalAlignment="Left" Margin="109,122,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="49"/>
+        <TextBlock x:Name="Wisdom_Display_Box" HorizontalAlignment="Left" Margin="109,145,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="49"/>
+        <TextBlock x:Name="Charisma_Display_Box" HorizontalAlignment="Left" Margin="109,168,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="49"/>
+        <TextBlock x:Name="Race_Text_Block" HorizontalAlignment="Left" Margin="10,191,0,0" TextWrapping="Wrap" Text="Race" VerticalAlignment="Top" FontSize="14" FontFamily="MV Boli" FontWeight="Bold"/>
+        <TextBlock x:Name="Race_Display_Box" HorizontalAlignment="Left" Margin="109,191,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="49"/>
+        <TextBlock x:Name="Class_Text_Block" HorizontalAlignment="Left" Margin="10,214,0,0" TextWrapping="Wrap" Text="Class" VerticalAlignment="Top" FontSize="14" FontFamily="MV Boli" FontWeight="Bold"/>
+        <TextBlock x:Name="Class_Display_Box" HorizontalAlignment="Left" Margin="109,214,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="49"/>
 
     </Grid>
 </Window>
