@@ -8,8 +8,11 @@ using System.Security.Cryptography;
 
 namespace GroupProject5ECharCreator
 {
+
     public class CharacterClass
     {
+        //Contains all of the information about the character being created. The class at the end has nothing to do with DND classes, and that probably wasn't the best name to pick.
+
         public int HitPoints;
         public int Strength;
         public int Dexterity;
@@ -17,17 +20,37 @@ namespace GroupProject5ECharCreator
         public int Intelligence;
         public int Wisdom;
         public int Charisma;
+        public IClass ClassData;//Contains all of the information related to this character's DND class
         private static RNGCryptoServiceProvider rngGen = new RNGCryptoServiceProvider();
-        
+
+        public CharacterClass()
+        {
+            ClassData = new Barbarian();
+        }
+
+        public void changeClass(string ChangeTo)
+        {
+            if (ChangeTo == "Barbarian")
+            {
+                ClassData = new Barbarian();
+            }
+
+            if (ChangeTo == "Bard")
+            {
+                ClassData = new Bard();
+            }
+
+        }
+
+
         public void Roll()
         {
             int[] results = new int[6];
 
-            for (int i= 0; i  <  6; i++)
+            for (int i = 0; i < 6; i++)
             {
                 results[i] = (Next(1, 8) + Next(1, 8) + Next(1, 8));
             }
-
             
 
             Strength = results[0];
@@ -36,198 +59,9 @@ namespace GroupProject5ECharCreator
             Intelligence = results[3];
             Wisdom = results[4];
             Charisma = results[5];
-            //    RollForStrength();
-            //    RollForDex();
-            //    RollForInt();
-            //    RollForConstitution();
-            //    RollForWisdom();
-            //    RollForCharisma();
-            //
         }
 
-        //public void RollForCharisma()
-        //{
-        //    //Random rnd = new Random(DateTime.Now.Second);
-        //    RNGCryptoServiceProvider rngGen = new RNGCryptoServiceProvider();
-        //    int[] rolls = new int[4];//Rolls of a 6 sided die
-        //    Byte[] byt = new Byte[1000];
-
-        //    int lowest = 0;
-
-        //    for (int i = 0; i < 4; i++)
-        //    {
-
-
-        //        rngGen.GetBytes(byt, 1, 7);
-        //        if (lowest < byt[i])
-        //        {
-        //            lowest = i;
-
-        //        }
-
-        //    }
-        //    byt[lowest] = 0;
-
-        //    int totalForRoll = 0;
-
-        //    foreach (int number in rolls)
-        //    {
-        //        totalForRoll += number;
-        //    }
-
-        //    Charisma = totalForRoll;
-
-        //}
-
-        //public void RollForWisdom()
-        //{
-
-        //    //Random rnd = new Random(DateTime.Now.Second);
-        //    RNGCryptoServiceProvider rngGen = new RNGCryptoServiceProvider();
-        //    int[] rolls = new int[4];//Rolls of a 6 sided die
-        //    Byte[] byt = new Byte[1000];
-
-        //    int lowest = 0;
-
-        //    for (int i = 0; i < 4; i++)
-        //    {
-
-
-        //        rngGen.GetBytes(byt, 1, 7);
-        //        if (lowest < byt[i])
-        //        {
-        //            lowest = i;
-
-        //        }
-
-        //    }
-        //    byt[lowest] = 0;
-
-        //    int totalForRoll = 0;
-
-        //    foreach (int number in rolls)
-        //    {
-        //        totalForRoll += number;
-        //    }
-
-        //    Wisdom = totalForRoll;
-
-        //}
-
-        //public void RollForConstitution()
-        //{
-        //    //Random rnd = new Random(DateTime.Now.Second);
-        //    RNGCryptoServiceProvider rngGen = new RNGCryptoServiceProvider();
-        //    int[] rolls = new int[4];//Rolls of a 6 sided die
-        //    Byte[] byt = new Byte[1000];
-
-        //    int lowest = 0;
-
-        //    for (int i = 0; i < 4; i++)
-        //    {
-
-
-        //        rngGen.GetBytes(byt, 1, 7);
-        //        if (lowest < byt[i])
-        //        {
-        //            lowest = i;
-
-        //        }
-
-        //    }
-        //    byt[lowest] = 0;
-
-        //    int totalForRoll = 0;
-
-        //    foreach (int number in rolls)
-        //    {
-        //        totalForRoll += number;
-        //    }
-
-        //    Constitution = totalForRoll;
-
-        //}
-
-        //public void RollForStrength()
-        //{
-        //    //Random rnd = new Random(DateTime.Now.Second);
-        //    RNGCryptoServiceProvider rngGen = new RNGCryptoServiceProvider();
-        //    int[] rolls = new int[4];//Rolls of a 6 sided die
-        //    Byte[] byt = new Byte[1000];
-
-        //    int lowest = 0;
-
-        //    for (int i = 0; i < 4; i++)
-        //    {
-
-
-        //        rngGen.GetBytes(byt, 1, 7);
-        //        if (lowest < byt[i])
-        //        {
-        //            lowest = i;
-
-        //        }
-
-        //    }
-        //    byt[lowest] = 0;
-
-        //    int totalForRoll = 0;
-
-        //    foreach (int number in rolls)
-        //    {
-        //        totalForRoll += number;
-        //    }
-
-        //    Strength = totalForRoll;
-
-        //}
-
-        //public void RollForDex()
-        //{
-        //    //Random rnd = new Random(DateTime.Now.Second);
-        //    RNGCryptoServiceProvider rngGen = new RNGCryptoServiceProvider();
-        //    int[] rolls = new int[4];//Rolls of a 6 sided die
-        //    Byte[] byt = new Byte[1000];
-
-        //    int lowest = 0;
-
-        //    for (int i = 0; i < 4; i++)
-        //    {
-
-
-        //        rngGen.GetBytes(byt, 1, 7);
-        //        if (lowest < byt[i])
-        //        {
-        //            lowest = i;
-
-        //        }
-
-        //    }
-        //    byt[lowest] = 0;
-
-        //    int totalForRoll = 0;
-
-        //    foreach (int number in rolls)
-        //    {
-        //        totalForRoll += number;
-        //    }
-
-        //    Dexterity = totalForRoll;
-        //}
-
-        //public void RollForInt()
-        //{
-        //    //Random rnd = new Random(DateTime.Now.Second);
-        //    RNGCryptoServiceProvider rngGen = new RNGCryptoServiceProvider();
-        //    int[] rolls = new int[6];//Rolls of a 6 sided die
-        //    Byte[] byt = new Byte[4];
-        //    rngGen.GetBytes(byt, 0, 4);
-        //    int lowest = 0;
-
-
-
-        //    //Intelligence = totalForRoll;
-        //}
+       
 
         public  Int32 Next(Int32 minValue, Int32 maxValue)
         {

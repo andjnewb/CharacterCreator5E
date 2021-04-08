@@ -50,6 +50,8 @@ namespace GroupProject5ECharCreator
         private void ClassListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             CharContainer.ClassName = ClassListBox.SelectedItem.ToString();
+            CharContainer.characterClass.changeClass(ClassListBox.SelectedItem.ToString());
+            ContextInfoTextBlock.Text = CharContainer.characterClass.ClassData.classDescription;
         }
 
         private void BackgroundListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)

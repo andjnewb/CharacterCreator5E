@@ -77,6 +77,7 @@
     </Compile>
     <Compile Include="CharacterClass.cs" />
     <Compile Include="CharDataContainer.cs" />
+    <Compile Include="IClass.cs" />
     <Compile Include="DataContainer.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
