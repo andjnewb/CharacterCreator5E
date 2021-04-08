@@ -87,5 +87,141 @@ namespace GroupProject5ECharCreator
 
     }
 
+    public class Fighter : IClass
+    {
+        public int strengthModifier { get; set; }
+        public int constitutionModifier { get; set; }
+        public int charismaModifier { get; set; }
+        public int DexterityModifier { get; set; }
+        public int intelligenceModifier { get; set; }
+        public int wisdomModifier { get; set; }
+
+        string IClass.classDescription => "An expert in martial combat, skilled with any types of weapons and armor.";
+
+        public Fighter()
+        {
+
+        }
+    }
+
+
+    public class Monk : IClass
+    {
+        public int strengthModifier { get; set; }
+        public int constitutionModifier { get; set; }
+        public int charismaModifier { get; set; }
+        public int DexterityModifier { get; set; }
+        public int intelligenceModifier { get; set; }
+        public int wisdomModifier { get; set; }
+
+        string IClass.classDescription => "An expert in martial arts, drawing their strength from the body and spirit.";
+
+        public Monk()
+        {
+
+        }
+    }
+
+    public class Paladin : IClass
+    {
+        public int strengthModifier { get; set; }
+        public int constitutionModifier { get; set; }
+        public int charismaModifier { get; set; }
+        public int DexterityModifier { get; set; }
+        public int intelligenceModifier { get; set; }
+        public int wisdomModifier { get; set; }
+
+        string IClass.classDescription => "A holy warrior with a focus on raw power and charisma.";
+
+        public Paladin()
+        {
+
+        }
+    }
+
+    public class Ranger : IClass
+    {
+        public int strengthModifier { get; set; }
+        public int constitutionModifier { get; set; }
+        public int charismaModifier { get; set; }
+        public int DexterityModifier { get; set; }
+        public int intelligenceModifier { get; set; }
+        public int wisdomModifier { get; set; }
+
+        string IClass.classDescription => "A lone warrior who strikes from afar before closing in, prefers skill over brute force.";
+
+        public Ranger()
+        {
+
+        }
+    }
+
+    public class Rogue : IClass
+    {
+        public int strengthModifier { get; set; }
+        public int constitutionModifier { get; set; }
+        public int charismaModifier { get; set; }
+        public int DexterityModifier { get; set; }
+        public int intelligenceModifier { get; set; }
+        public int wisdomModifier { get; set; }
+
+        string IClass.classDescription => "A scoundrel from the streets who is an expert in trickery and fast combat.";
+
+        public Rogue()
+        {
+
+        }
+    }
+
+    public class Sorcerer : IClass
+    {
+        public int strengthModifier { get; set; }
+        public int constitutionModifier { get; set; }
+        public int charismaModifier { get; set; }
+        public int DexterityModifier { get; set; }
+        public int intelligenceModifier { get; set; }
+        public int wisdomModifier { get; set; }
+
+        string IClass.classDescription => "A spellcaster whose magical abilities are innate, whether bestowed upon them or inherited.";
+
+        public Sorcerer()
+        {
+
+        }
+    }
+
+    public class Warlock : IClass
+    {
+        public int strengthModifier { get; set; }
+        public int constitutionModifier { get; set; }
+        public int charismaModifier { get; set; }
+        public int DexterityModifier { get; set; }
+        public int intelligenceModifier { get; set; }
+        public int wisdomModifier { get; set; }
+
+        string IClass.classDescription => "A magic wielder who gained their powers from an entity that lives on a different plane of existence.";
+
+        public Warlock()
+        {
+
+        }
+    }
+
+    public class Wizard : IClass
+    {
+        public int strengthModifier { get; set; }
+        public int constitutionModifier { get; set; }
+        public int charismaModifier { get; set; }
+        public int DexterityModifier { get; set; }
+        public int intelligenceModifier { get; set; }
+        public int wisdomModifier { get; set; }
+
+        string IClass.classDescription => "A studious magic wielder with the capability to change reality.";
+
+        public Wizard()
+        {
+
+        }
+    }
 
 }

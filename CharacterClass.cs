@@ -40,6 +40,55 @@ namespace GroupProject5ECharCreator
                 ClassData = new Bard();
             }
 
+            if (ChangeTo == "Cleric")
+            {
+                ClassData = new Cleric();
+            }
+
+            if (ChangeTo == "Druid")
+            {
+                ClassData = new Druid();
+            }
+
+            if (ChangeTo == "Fighter")
+            {
+                ClassData = new Fighter();
+            }
+
+            if (ChangeTo == "Monk")
+            {
+                ClassData = new Monk();
+            }
+
+            if (ChangeTo == "Paladin")
+            {
+                ClassData = new Paladin();
+            }
+
+            if (ChangeTo == "Ranger")
+            {
+                ClassData = new Ranger();
+            }
+
+            if (ChangeTo == "Rogue")
+            {
+                ClassData = new Rogue();
+            }
+
+            if (ChangeTo == "Sorcerer")
+            {
+                ClassData = new Sorcerer();
+            }
+
+            if (ChangeTo == "Warlock")
+            {
+                ClassData = new Warlock();
+            }
+
+            if (ChangeTo == "Wizard")
+            {
+                ClassData = new Wizard();
+            }
         }
 
 
