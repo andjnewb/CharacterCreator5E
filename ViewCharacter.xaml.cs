@@ -61,6 +61,8 @@ namespace GroupProject5ECharCreator
             Wisdom_Display_Box.Text = charDataContainer.characterClass.Wisdom.ToString();
             Charisma_Display_Box.Text = charDataContainer.characterClass.Charisma.ToString();
             Class_Display_Box.Text = charDataContainer.characterClass.ClassName;
+            Race_Display_Box.Text = charDataContainer.RaceName;
+
 
         }
     }

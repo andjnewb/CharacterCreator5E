@@ -45,14 +45,11 @@ namespace GroupProject5ECharCreator
 
       
 
-        private void RaceListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            CharContainer.RaceName = RaceListBox.SelectedItem.ToString();
-        }
+       
 
         private void ClassListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            CharContainer.ClassName = ClassListBox.SelectedItem.ToString();
+            CharContainer.characterClass.ClassName = ClassListBox.SelectedItem.ToString();
             CharContainer.characterClass.changeClass(ClassListBox.SelectedItem.ToString());
             ContextInfoTextBlock.Text = CharContainer.characterClass.ClassData.classDescription;
         }
@@ -91,6 +88,45 @@ namespace GroupProject5ECharCreator
         private void SaveProgressButton_Click(object sender, RoutedEventArgs e)
         {
             SaveContainer();
+        }
+
+        private void RaceListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Constitution_Bonus_Box.Content = "";
+            StrengthBonusBox.Content = "";
+            Dexterity_Bonus_Box.Content = "";
+            RaceFactory factory;
+            
+
+            //This switch catches whatever race the user has selected, and assigns factory with correct type of factory. It then uses that factory to assign CharContainer a race.
+            switch (RaceListBox.SelectedItem.ToString())
+            {
+                case "Dwarf":
+                    CharContainer.RaceName = "Dwarf";
+                    //Using the factory method to set the race for our dwarf. Same will apply bellow
+                    factory = new DwarfFactory();
+                    CharContainer.race = factory.GetRace();
+                    
+                    
+                    
+                    break;
+                case "Elf":
+                    CharContainer.RaceName = "Elf";
+                    factory = new ElfFactory();
+                    CharContainer.race = factory.GetRace();
+                    break;
+                default:
+                    break;
+            }
+
+
+
+            foreach (Label label in BonusGrid1.Children)
+            {
+                label.Content = null;
+            }
+
+
         }
     }
 }

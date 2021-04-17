@@ -10,30 +10,59 @@
     <Window.Resources>
 
     </Window.Resources>
-    <Grid HorizontalAlignment="Left" Height="422" VerticalAlignment="Top" Width="790" Margin="0,0,0,-3">
-        <ListBox x:Name="RaceListBox" HorizontalAlignment="Left" Height="55" Margin="161,66,0,0" VerticalAlignment="Top" Width="100"/>
-        <Label x:Name="RaceSelectLabel" Content="Select your race-" HorizontalAlignment="Left" Margin="17,66,0,0" VerticalAlignment="Top" Width="121"/>
-        <ListBox x:Name="ClassListBox" HorizontalAlignment="Left" Height="55" Margin="161,126,0,0" VerticalAlignment="Top" Width="100" SelectionChanged="ClassListBox_SelectionChanged"/>
-        <Label x:Name="ClassSelectLabel" Content="Select your class-" HorizontalAlignment="Left" Margin="17,126,0,0" VerticalAlignment="Top" Width="116"/>
-        <ListBox x:Name="BackgroundListBox" HorizontalAlignment="Left" Height="55" Margin="161,186,0,0" VerticalAlignment="Top" Width="100" SelectionChanged="BackgroundListBox_SelectionChanged"/>
-        <Label x:Name="SelectBackgroundLabel" Content="Select your background -" HorizontalAlignment="Left" Margin="0,186,0,0" VerticalAlignment="Top" Width="156"/>
-        <TextBox x:Name="NameInputBox" ToolTip="Choose a name for your character..." HorizontalAlignment="Left" Height="23" Margin="161,38,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" TextChanged="TextBox_TextChanged"/>
-        <Label x:Name="NameBox" Content="Name thyself -" HorizontalAlignment="Left" Margin="17,34,0,0" VerticalAlignment="Top" Width="116"/>
-        <TextBlock x:Name="NameLblBox" HorizontalAlignment="Left" Margin="365,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
-        <Button x:Name="RollStatsButton" ToolTip="Click here and something will happen!" Content="Roll Stats" HorizontalAlignment="Left" Margin="447,241,0,0" VerticalAlignment="Top" Width="75" Click="RollStatsButton_Click"/>
-        <TextBlock x:Name="StrengthTextBlock" HorizontalAlignment="Left" Margin="501,45,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="66"/>
-        <Label x:Name="StrengthLabel" Content="Strength" HorizontalAlignment="Left" Margin="441,44,0,0" VerticalAlignment="Top" FontSize="10"/>
-        <TextBlock x:Name="DexterityTextBlock" HorizontalAlignment="Left" Margin="501,77,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="66"/>
-        <Label x:Name="DexterityLaberl" Content="Dexterity" HorizontalAlignment="Left" Margin="441,76,0,0" VerticalAlignment="Top" FontSize="10"/>
-        <TextBlock x:Name="ConstitutionTextBlock" HorizontalAlignment="Left" Margin="501,105,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="66"/>
-        <Label x:Name="ConstitutionLabel" Content="Consitution" HorizontalAlignment="Left" Margin="441,104,0,0" VerticalAlignment="Top" FontSize="10"/>
-        <TextBlock x:Name="IntelligenceTextBlock" HorizontalAlignment="Left" Margin="501,137,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="66"/>
-        <Label x:Name="IntelligenceLabel" Content="Intelligence" HorizontalAlignment="Left" Margin="441,136,0,0" VerticalAlignment="Top" FontSize="10"/>
-        <TextBlock x:Name="WisdomTextBlock" HorizontalAlignment="Left" Margin="501,173,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="66"/>
-        <Label x:Name="WisdomLabel" Content="Wisdom" HorizontalAlignment="Left" Margin="441,172,0,0" VerticalAlignment="Top" FontSize="10"/>
-        <TextBlock x:Name="CharismaTextBlock" HorizontalAlignment="Left" Margin="501,205,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="66"/>
-        <Label x:Name="CharismaLabel" Content="Charisma" HorizontalAlignment="Left" Margin="441,204,0,0" VerticalAlignment="Top" FontSize="10"/>
-        <TextBlock x:Name="ContextInfoTextBlock" HorizontalAlignment="Left" Margin="621,44,0,0" TextWrapping="Wrap" Text="Select a field or statistics for more information." VerticalAlignment="Top" RenderTransformOrigin="0.707,1.083" Height="183" Width="146" FontSize="10"/>
-        <Button x:Name="SaveProgressButton" Content="Save progress" HorizontalAlignment="Left" Margin="705,392,0,0" VerticalAlignment="Top" Width="75" Click="SaveProgressButton_Click"/>
+    <Window.Background>
+        <ImageBrush ImageSource="dndnewchar.jpg"/>
+    </Window.Background>
+    <Grid HorizontalAlignment="Left" Height="422" VerticalAlignment="Top" Width="790" Margin="0,0,0,-3" IsManipulationEnabled="True">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="789*"/>
+        </Grid.ColumnDefinitions>
+        <ListBox x:Name="RaceListBox" HorizontalAlignment="Left" Height="55" Margin="159.667,66,0,0" VerticalAlignment="Top" Width="100" SelectionChanged="RaceListBox_SelectionChanged" IsSynchronizedWithCurrentItem="True" Grid.Column="1" Background="{x:Null}"/>
+        <Label x:Name="RaceSelectLabel" Content="Select your race-" HorizontalAlignment="Left" Margin="15.667,66,0,0" VerticalAlignment="Top" Width="121" Grid.Column="1"/>
+        <ListBox x:Name="ClassListBox" HorizontalAlignment="Left" Height="55" Margin="159.667,126,0,0" VerticalAlignment="Top" Width="100" SelectionChanged="ClassListBox_SelectionChanged" Grid.Column="1" Background="{x:Null}"/>
+        <Label x:Name="ClassSelectLabel" Content="Select your class-" HorizontalAlignment="Left" Margin="15.667,126,0,0" VerticalAlignment="Top" Width="116" Grid.Column="1"/>
+        <ListBox x:Name="BackgroundListBox" HorizontalAlignment="Left" Height="55" Margin="159.667,186,0,0" VerticalAlignment="Top" Width="100" SelectionChanged="BackgroundListBox_SelectionChanged" Grid.Column="1" Background="{x:Null}"/>
+        <Label x:Name="SelectBackgroundLabel" Content="Select your background -" HorizontalAlignment="Left" Margin="0,186,0,0" VerticalAlignment="Top" Width="156" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="NameInputBox" ToolTip="Choose a name for your character..." HorizontalAlignment="Left" Height="23" Margin="159.667,38,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" TextChanged="TextBox_TextChanged" Grid.Column="1" Background="{x:Null}"/>
+        <Label x:Name="NameBox" Content="Name thyself -" HorizontalAlignment="Left" Margin="15.667,34,0,0" VerticalAlignment="Top" Width="116" Grid.Column="1"/>
+        <TextBlock x:Name="NameLblBox" HorizontalAlignment="Left" Margin="363.667,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Grid.Column="1"/>
+        <Button x:Name="RollStatsButton" ToolTip="Click here and something will happen!" Content="Roll Stats" HorizontalAlignment="Left" Margin="445.667,241,0,0" VerticalAlignment="Top" Width="75" Click="RollStatsButton_Click" Grid.Column="1"/>
+        <TextBlock x:Name="StrengthTextBlock" HorizontalAlignment="Left" Margin="499.667,45,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="66" Grid.Column="1"/>
+        <Label x:Name="StrengthLabel" Content="Strength" HorizontalAlignment="Left" Margin="439.667,44,0,0" VerticalAlignment="Top" FontSize="10" Grid.Column="1"/>
+        <TextBlock x:Name="DexterityTextBlock" HorizontalAlignment="Left" Margin="499.667,77,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="66" Grid.Column="1"/>
+        <Label x:Name="DexterityLaberl" Content="Dexterity" HorizontalAlignment="Left" Margin="439.667,76,0,0" VerticalAlignment="Top" FontSize="10" Grid.Column="1"/>
+        <TextBlock x:Name="ConstitutionTextBlock" HorizontalAlignment="Left" Margin="499.667,105,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="66" Grid.Column="1"/>
+        <Label x:Name="ConstitutionLabel" Content="Consitution" HorizontalAlignment="Left" Margin="439.667,104,0,0" VerticalAlignment="Top" FontSize="10" Grid.Column="1"/>
+        <TextBlock x:Name="IntelligenceTextBlock" HorizontalAlignment="Left" Margin="499.667,137,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="66" Grid.Column="1"/>
+        <Label x:Name="IntelligenceLabel" Content="Intelligence" HorizontalAlignment="Left" Margin="439.667,136,0,0" VerticalAlignment="Top" FontSize="10" Grid.Column="1"/>
+        <TextBlock x:Name="WisdomTextBlock" HorizontalAlignment="Left" Margin="499.667,173,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="66" Grid.Column="1"/>
+        <Label x:Name="WisdomLabel" Content="Wisdom" HorizontalAlignment="Left" Margin="439.667,172,0,0" VerticalAlignment="Top" FontSize="10" Grid.Column="1"/>
+        <TextBlock x:Name="CharismaTextBlock" HorizontalAlignment="Left" Margin="499.667,205,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="66" Grid.Column="1"/>
+        <Label x:Name="CharismaLabel" Content="Charisma" HorizontalAlignment="Left" Margin="439.667,204,0,0" VerticalAlignment="Top" FontSize="10" Grid.Column="1"/>
+        <TextBlock x:Name="ContextInfoTextBlock" HorizontalAlignment="Left" Margin="620,116,0,0" TextWrapping="Wrap" Text="Select a field or statistic for more information." VerticalAlignment="Top" RenderTransformOrigin="0.707,1.083" Height="183" Width="146" FontSize="10" Grid.Column="1" FontWeight="ExtraBold" FontStretch="UltraExpanded"/>
+        <Button x:Name="SaveProgressButton" Content="Save progress" HorizontalAlignment="Left" Margin="703.667,392,0,0" VerticalAlignment="Top" Width="75" Click="SaveProgressButton_Click" Grid.Column="1"/>
+        <Grid x:Name="BonusGrid1" Grid.Column="1" Margin="577,45,174,293">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="18*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0*"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Label x:Name="StrengthBonusBox" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="10" Width="38" Grid.RowSpan="2" Grid.ColumnSpan="2"/>
+            <Label x:Name="Dexterity_Bonus_Box" Content="" HorizontalAlignment="Left" Margin="0,33,0,0" VerticalAlignment="Top" FontSize="10" Width="38" Grid.RowSpan="2" Grid.ColumnSpan="2"/>
+            <Label x:Name="Constitution_Bonus_Box" Content="" HorizontalAlignment="Left" Margin="0,61,0,0" VerticalAlignment="Top" FontSize="10" Width="38" RenderTransformOrigin="0.5,0.5" Grid.RowSpan="2" Grid.ColumnSpan="2">
+                <Label.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Label.RenderTransform>
+            </Label>
+        </Grid>
     </Grid>
 </Window>
