@@ -33,8 +33,6 @@ namespace GroupProject5ECharCreator
             Bonus_2_Combo_Box.Items.Add("Strength");
             Bonus_1_Combo_Box.Items.Add("Dexterity");
             Bonus_2_Combo_Box.Items.Add("Dexterity");
-            Bonus_1_Combo_Box.Items.Add("Charisma");
-            Bonus_2_Combo_Box.Items.Add("Charisma");
             Bonus_1_Combo_Box.Items.Add("Intelligence");
             Bonus_2_Combo_Box.Items.Add("Intelligence");
             Bonus_1_Combo_Box.Items.Add("Wisdom");
@@ -77,7 +75,7 @@ namespace GroupProject5ECharCreator
 
         private void BackgroundListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            CharContainer.Background = ClassListBox.SelectedItem.ToString();
+            CharContainer.Background = BackgroundListBox.SelectedItem.ToString();
         }
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
@@ -114,7 +112,7 @@ namespace GroupProject5ECharCreator
 
         private void RaceListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-       
+
             
 
             //Cleaning up the bonus boxes if the race is changed.
@@ -148,9 +146,12 @@ namespace GroupProject5ECharCreator
                 case "Half Elf":
                     Bonus_1_Combo_Box.Visibility = Visibility.Visible;
                     Bonus_2_Combo_Box.Visibility = Visibility.Visible;
+                    CharContainer.RaceName = "Half Elf";
 
-                    
+                    factory = ConvertChoicesToRacialBonus();
 
+                    CharContainer.race = factory.GetRace();
+                    ModifyBonusBoxes();
                     //return new HalfElfFactory();
 
                     break;
@@ -170,12 +171,45 @@ namespace GroupProject5ECharCreator
                     CharContainer.race = factory.GetRace();
                     ModifyBonusBoxes();
                     break;
+                case "Half Orc":
+                    Bonus_1_Combo_Box.Visibility = Visibility.Hidden;
+                    Bonus_2_Combo_Box.Visibility = Visibility.Hidden;
+                    CharContainer.RaceName = "Half Orc";
+                    factory = new HalfOrcFactory();
+                    CharContainer.race = factory.GetRace();
+                    ModifyBonusBoxes();
+                    break;
+                case "Human":
+                    Bonus_1_Combo_Box.Visibility = Visibility.Hidden;
+                    Bonus_2_Combo_Box.Visibility = Visibility.Hidden;
+                    CharContainer.RaceName = "Human";
+                    factory = new HumanFactory();
+                    CharContainer.race = factory.GetRace();
+                    ModifyBonusBoxes();
+                    break;
+                case "Tiefling":
+                    Bonus_1_Combo_Box.Visibility = Visibility.Hidden;
+                    Bonus_2_Combo_Box.Visibility = Visibility.Hidden;
+                    CharContainer.RaceName = "Tielfing";
+                    factory = new TieflingFactory();
+                    CharContainer.race = factory.GetRace();
+                    ModifyBonusBoxes();
+                    break;
+                case "Halfling":
+                    Bonus_1_Combo_Box.Visibility = Visibility.Hidden;
+                    Bonus_2_Combo_Box.Visibility = Visibility.Hidden;
+                    CharContainer.RaceName = "Halfling";
+                    factory = new HalflingFactory();
+                    CharContainer.race = factory.GetRace();
+                    ModifyBonusBoxes();
+                    break;
                 default:
                     break;
             }
 
+            if (CharContainer.race != null)
+                ContextInfoTextBlock.Text = CharContainer.race.RaceDescription;
 
-            
 
         }
 
@@ -209,6 +243,109 @@ namespace GroupProject5ECharCreator
                 }
 
 
+            }
+        }
+
+        RaceFactory ConvertChoicesToRacialBonus()
+        {
+            RacialBonus bonus1 = RacialBonus.StrBonus;
+            RacialBonus bonus2 = RacialBonus.CharismaBonus;
+
+            switch (Bonus_1_Combo_Box.SelectedItem.ToString())
+            {
+                case "Strength":
+                    bonus1 = RacialBonus.StrBonus;
+                    break;
+                case "Intelligence":
+                    bonus1 = RacialBonus.IntBonus;
+                    break;
+                case "Wisdom":
+                    bonus1 = RacialBonus.WisdomBonus;
+                    break;
+                case "Constitution":
+                    bonus1 = RacialBonus.ConstBonus;
+                    break;
+                case "Dexterity":
+                    bonus1 = RacialBonus.DexBonus;
+                    break;
+
+
+                default:break;
+            }
+
+            switch (Bonus_2_Combo_Box.SelectedItem.ToString())
+            {
+                case "Strength":
+                    bonus2 = RacialBonus.StrBonus;
+                    break;
+                case "Intelligence":
+                    bonus2 = RacialBonus.IntBonus;
+                    break;
+                case "Wisdom":
+                    bonus2 = RacialBonus.WisdomBonus;
+                    break;
+                case "Constitution":
+                    bonus2 = RacialBonus.ConstBonus;
+                    break;
+                case "Dexterity":
+                    bonus2 = RacialBonus.DexBonus;
+                    break;
+
+
+                default: break;
+            }
+
+            return new HalfElfFactory(bonus1,bonus2);
+
+        }
+
+        private void Bonus_1_Combo_Box_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ContextInfoTextBlock.Text = "As a half elf, you get to select your racial bonuses! Choose from one of the 5. Note that you can't stack bonuses i.e. you can't select strength twice.";
+
+            if (Bonus_1_Combo_Box.SelectedIndex == Bonus_2_Combo_Box.SelectedIndex)
+            {
+                ContextInfoTextBlock.Text = "You can't have two of the same bonuses, sorry!";
+                Bonus_1_Combo_Box.SelectedIndex = 0;
+                Bonus_2_Combo_Box.SelectedIndex = 1;
+            }
+
+            
+            foreach (Label label in BonusGrid1.Children)
+            {
+                label.Content = null;
+            }
+
+            if (factory != null && CharContainer.race != null)
+            {
+                factory = ConvertChoicesToRacialBonus();
+                CharContainer.race = factory.GetRace();
+                ModifyBonusBoxes();
+            }
+        }
+
+        private void Bonus_2_Combo_Box_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ContextInfoTextBlock.Text = "As a half elf, you get to select your racial bonuses! Choose from one of the 5. Note that you can't stack bonuses i.e. you can't select strength twice.";
+
+
+            if (Bonus_1_Combo_Box.SelectedIndex == Bonus_2_Combo_Box.SelectedIndex)
+            {
+                ContextInfoTextBlock.Text = "You can't have two of the same bonuses, sorry!";
+                Bonus_1_Combo_Box.SelectedIndex = 0;
+                Bonus_2_Combo_Box.SelectedIndex = 1;
+            }
+
+            foreach (Label label in BonusGrid1.Children)
+            {
+                label.Content = null;
+            }
+
+            if (factory != null && CharContainer.race != null)
+            {
+                factory = ConvertChoicesToRacialBonus();
+                CharContainer.race = factory.GetRace();
+                ModifyBonusBoxes();
             }
         }
     }
