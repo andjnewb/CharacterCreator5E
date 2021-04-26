@@ -13,7 +13,15 @@
     <Window.Background>
         <ImageBrush ImageSource="dndnewchar.jpg"/>
     </Window.Background>
-    <Grid HorizontalAlignment="Left" Height="422" VerticalAlignment="Top" Width="790" Margin="0,0,0,-3" IsManipulationEnabled="True">
+    <Grid HorizontalAlignment="Left" Height="422" VerticalAlignment="Top" Width="790" Margin="0,0,0,-3" IsManipulationEnabled="True" RenderTransformOrigin="0.5,0.5">
+        <Grid.RenderTransform>
+            <TransformGroup>
+                <ScaleTransform/>
+                <SkewTransform/>
+                <RotateTransform/>
+                <TranslateTransform/>
+            </TransformGroup>
+        </Grid.RenderTransform>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition Width="789*"/>
@@ -40,8 +48,8 @@
         <Label x:Name="WisdomLabel" Content="Wisdom" HorizontalAlignment="Left" Margin="439.667,172,0,0" VerticalAlignment="Top" FontSize="10" Grid.Column="1" ToolTip="Your commons sense and general knowledge of the world."/>
         <TextBlock x:Name="CharismaTextBlock" HorizontalAlignment="Left" Margin="499.667,205,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="66" Grid.Column="1"/>
         <Label x:Name="CharismaLabel" Content="Charisma" HorizontalAlignment="Left" Margin="439.667,204,0,0" VerticalAlignment="Top" FontSize="10" Grid.Column="1" ToolTip="How To Win Friends and Influence People, by Dale Carnegie."/>
-        <TextBlock x:Name="ContextInfoTextBlock" HorizontalAlignment="Left" Margin="620,94,0,0" TextWrapping="Wrap" Text="Select a field or statistic for more information." VerticalAlignment="Top" RenderTransformOrigin="0.707,1.083" Height="186" Width="146" FontSize="10" Grid.Column="1" FontWeight="ExtraBold" FontStretch="UltraExpanded"/>
-        <Button x:Name="SaveProgressButton" Content="Save progress" HorizontalAlignment="Left" Margin="655,285,0,0" VerticalAlignment="Top" Width="84" Click="SaveProgressButton_Click" Grid.Column="1"/>
+        <TextBlock x:Name="ContextInfoTextBlock" HorizontalAlignment="Left" Margin="265,166,0,0" TextWrapping="Wrap" Text="Select a field or statistic for more information." VerticalAlignment="Top" RenderTransformOrigin="0.707,1.083" Height="186" Width="129" FontSize="10" Grid.Column="1" FontWeight="ExtraBold" FontStretch="UltraExpanded"/>
+        <Button x:Name="SaveProgressButton" Content="Save progress" HorizontalAlignment="Left" Margin="531,392,0,0" VerticalAlignment="Top" Width="84" Click="SaveProgressButton_Click" Grid.Column="1"/>
         <Grid x:Name="BonusGrid1" Grid.Column="1" Margin="577,45,174,195">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="2*"/>
@@ -75,7 +83,122 @@
             <Label x:Name="Racial_Bonus_Selection_Label" Content="Select your racial bonuses." HorizontalAlignment="Left" VerticalAlignment="Top" Width="90" FontSize="7"/>
         </Grid>
         <Label x:Name="Racial_Traits_Label" Content="Racial Traits" Grid.Column="1" HorizontalAlignment="Left" Margin="421,261,0,0" VerticalAlignment="Top" Width="100"/>
-        <ListBox x:Name="Racial_Traits_Listbox" Grid.Column="1" HorizontalAlignment="Left" Height="85" Margin="421,285,0,0" VerticalAlignment="Top" Width="194" Background="{x:Null}" SelectionChanged="Racial_Traits_Listbox_SelectionChanged"/>
-        <Button x:Name="Select_Skills_Button" Content="Select skills" Grid.Column="1" HorizontalAlignment="Left" Margin="655,310,0,0" VerticalAlignment="Top" Width="84"/>
+        <ListBox x:Name="Racial_Traits_Listbox" Grid.Column="1" HorizontalAlignment="Left" Height="85" Margin="421,285,0,0" VerticalAlignment="Top" Width="153" Background="{x:Null}" SelectionChanged="Racial_Traits_Listbox_SelectionChanged"/>
+        <Grid x:Name="Abilities_Grid" Grid.Column="1" HorizontalAlignment="Left" Height="403" Margin="620,15,0,0" VerticalAlignment="Top" Width="127" RenderTransformOrigin="0.5,0.5">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="25*"/>
+                <RowDefinition Height="10*"/>
+                <RowDefinition Height="360*"/>
+                <RowDefinition Height="8*"/>
+            </Grid.RowDefinitions>
+            <TextBlock x:Name="Acrobatics_Text_Block" HorizontalAlignment="Left" Margin="69,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="22" Width="51" RenderTransformOrigin="-1,0.682">
+                <TextBlock.Background>
+                    <ImageBrush ImageSource="brown-leather-texture-background.jpg"/>
+                </TextBlock.Background>
+            </TextBlock>
+            <TextBlock x:Name="AnimalHandling_Textblock" HorizontalAlignment="Left" Margin="69,22,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="22" Width="51" RenderTransformOrigin="-1,0.682" Grid.RowSpan="3">
+                <TextBlock.Background>
+                    <ImageBrush ImageSource="brown-leather-texture-background.jpg"/>
+                </TextBlock.Background>
+            </TextBlock>
+            <TextBlock x:Name="Arcana_Textblock" HorizontalAlignment="Left" Margin="69,9,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="22" Width="51" RenderTransformOrigin="-1,0.682" Grid.Row="2">
+                <TextBlock.Background>
+                    <ImageBrush ImageSource="brown-leather-texture-background.jpg"/>
+                </TextBlock.Background>
+            </TextBlock>
+            <TextBlock x:Name="Athletics_Textblock" HorizontalAlignment="Left" Margin="69,31,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="22" Width="51" RenderTransformOrigin="-1,0.682" Grid.Row="2">
+                <TextBlock.Background>
+                    <ImageBrush ImageSource="brown-leather-texture-background.jpg"/>
+                </TextBlock.Background>
+            </TextBlock>
+            <TextBlock x:Name="Deception_Textblock" HorizontalAlignment="Left" Margin="69,53,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="22" Width="51" RenderTransformOrigin="-1,0.682" Grid.Row="2">
+                <TextBlock.Background>
+                    <ImageBrush ImageSource="brown-leather-texture-background.jpg"/>
+                </TextBlock.Background>
+            </TextBlock>
+            <TextBlock x:Name="History_Textblock" HorizontalAlignment="Left" Margin="69,75,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="22" Width="51" RenderTransformOrigin="-1,0.682" Grid.Row="2">
+                <TextBlock.Background>
+                    <ImageBrush ImageSource="brown-leather-texture-background.jpg"/>
+                </TextBlock.Background>
+            </TextBlock>
+            <TextBlock x:Name="Insight_Textblock" HorizontalAlignment="Left" Margin="69,97,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="22" Width="51" RenderTransformOrigin="-1,0.682" Grid.Row="2">
+                <TextBlock.Background>
+                    <ImageBrush ImageSource="brown-leather-texture-background.jpg"/>
+                </TextBlock.Background>
+            </TextBlock>
+            <TextBlock x:Name="Intimidation_Textblock" HorizontalAlignment="Left" Margin="69,119,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="22" Width="51" RenderTransformOrigin="-1,0.682" Grid.Row="2">
+                <TextBlock.Background>
+                    <ImageBrush ImageSource="brown-leather-texture-background.jpg"/>
+                </TextBlock.Background>
+            </TextBlock>
+            <TextBlock x:Name="Investigation_Textblock" HorizontalAlignment="Left" Margin="69,141,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="22" Width="51" RenderTransformOrigin="-1,0.682" Grid.Row="2">
+                <TextBlock.Background>
+                    <ImageBrush ImageSource="brown-leather-texture-background.jpg"/>
+                </TextBlock.Background>
+            </TextBlock>
+            <TextBlock x:Name="Medicine_Textblock" HorizontalAlignment="Left" Margin="69,163,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="22" Width="51" RenderTransformOrigin="-1,0.682" Grid.Row="2">
+                <TextBlock.Background>
+                    <ImageBrush ImageSource="brown-leather-texture-background.jpg"/>
+                </TextBlock.Background>
+            </TextBlock>
+            <TextBlock x:Name="Nature_Textblock" HorizontalAlignment="Left" Margin="69,185,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="22" Width="51" RenderTransformOrigin="-1,0.682" Grid.Row="2">
+                <TextBlock.Background>
+                    <ImageBrush ImageSource="brown-leather-texture-background.jpg"/>
+                </TextBlock.Background>
+            </TextBlock>
+            <TextBlock x:Name="Perception_Textblock" HorizontalAlignment="Left" Margin="69,207,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="22" Width="51" RenderTransformOrigin="-1,0.682" Grid.Row="2">
+                <TextBlock.Background>
+                    <ImageBrush ImageSource="brown-leather-texture-background.jpg"/>
+                </TextBlock.Background>
+            </TextBlock>
+            <TextBlock x:Name="Performance_Textblock" HorizontalAlignment="Left" Margin="69,229,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="22" Width="51" RenderTransformOrigin="-1,0.682" Grid.Row="2">
+                <TextBlock.Background>
+                    <ImageBrush ImageSource="brown-leather-texture-background.jpg"/>
+                </TextBlock.Background>
+            </TextBlock>
+            <TextBlock x:Name="Persuasion_Textblock" HorizontalAlignment="Left" Margin="69,251,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="22" Width="51" RenderTransformOrigin="-1,0.682" Grid.Row="2">
+                <TextBlock.Background>
+                    <ImageBrush ImageSource="brown-leather-texture-background.jpg"/>
+                </TextBlock.Background>
+            </TextBlock>
+            <TextBlock x:Name="Religion_Textblock" HorizontalAlignment="Left" Margin="69,273,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="22" Width="51" RenderTransformOrigin="-1,0.682" Grid.Row="2">
+                <TextBlock.Background>
+                    <ImageBrush ImageSource="brown-leather-texture-background.jpg"/>
+                </TextBlock.Background>
+            </TextBlock>
+            <TextBlock x:Name="SleightOfHand_Textblock" HorizontalAlignment="Left" Margin="69,295,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="22" Width="51" RenderTransformOrigin="-1,0.682" Grid.Row="2">
+                <TextBlock.Background>
+                    <ImageBrush ImageSource="brown-leather-texture-background.jpg"/>
+                </TextBlock.Background>
+            </TextBlock>
+            <TextBlock x:Name="Stealth_Textblock" HorizontalAlignment="Left" Margin="69,317,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="22" Width="51" RenderTransformOrigin="-1,0.682" Grid.Row="2">
+                <TextBlock.Background>
+                    <ImageBrush ImageSource="brown-leather-texture-background.jpg"/>
+                </TextBlock.Background>
+            </TextBlock>
+            <TextBlock x:Name="Survival_Textblock" HorizontalAlignment="Left" Margin="69,339,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="22" Width="51" RenderTransformOrigin="-1,0.682" Grid.Row="2" Grid.RowSpan="2">
+                <TextBlock.Background>
+                    <ImageBrush ImageSource="brown-leather-texture-background.jpg"/>
+                </TextBlock.Background>
+            </TextBlock>
+        </Grid>
+        <Label x:Name="Deception_Label" Content="Deception" HorizontalAlignment="Left" VerticalAlignment="Top" Width="69" Grid.Column="1" Margin="620,107,0,0" Height="22" FontSize="8"/>
+        <Label x:Name="History_Label" Content="History" HorizontalAlignment="Left" VerticalAlignment="Top" Width="69" Grid.Column="1" Margin="620,129,0,0" Height="22" FontSize="8"/>
+        <Label x:Name="Insight_Label" Content="Insight" HorizontalAlignment="Left" VerticalAlignment="Top" Width="69" Grid.Column="1" Margin="620,151,0,0" Height="22" FontSize="8"/>
+        <Label x:Name="Intimidation_Label" Content="Intimidation" HorizontalAlignment="Left" VerticalAlignment="Top" Width="69" Grid.Column="1" Margin="620,175,0,0" Height="22" FontSize="8"/>
+        <Label x:Name="Investigation_Label" Content="Investigation" HorizontalAlignment="Left" VerticalAlignment="Top" Width="69" Grid.Column="1" Margin="620,197,0,0" Height="22" FontSize="8"/>
+        <Label x:Name="Medicine_Label" Content="Medicine" HorizontalAlignment="Left" VerticalAlignment="Top" Width="69" Grid.Column="1" Margin="620,219,0,0" Height="22" FontSize="8"/>
+        <Label x:Name="Nature_Label" Content="Nature" HorizontalAlignment="Left" VerticalAlignment="Top" Width="69" Grid.Column="1" Margin="620,241,0,0" Height="22" FontSize="8"/>
+        <Label x:Name="Perception_Label" Content="Perception" HorizontalAlignment="Left" VerticalAlignment="Top" Width="69" Grid.Column="1" Margin="620,263,0,0" Height="22" FontSize="8"/>
+        <Label x:Name="Performance_Label" Content="Performance" HorizontalAlignment="Left" VerticalAlignment="Top" Width="69" Grid.Column="1" Margin="620,285,0,0" Height="22" FontSize="8"/>
+        <Label x:Name="Persuasion_Label" Content="Persuasion" HorizontalAlignment="Left" VerticalAlignment="Top" Width="69" Grid.Column="1" Margin="620,307,0,0" Height="22" FontSize="8"/>
+        <Label x:Name="Religion_Label" Content="Religion" HorizontalAlignment="Left" VerticalAlignment="Top" Width="69" Grid.Column="1" Margin="620,329,0,0" Height="22" FontSize="8"/>
+        <Label x:Name="SleightOfHand_Label" Content="Sleight of Hand" HorizontalAlignment="Left" VerticalAlignment="Top" Width="69" Grid.Column="1" Margin="620,351,0,0" Height="22" FontSize="8"/>
+        <Label x:Name="Stealth_Label" Content="Stealth" HorizontalAlignment="Left" VerticalAlignment="Top" Width="69" Grid.Column="1" Margin="620,373,0,0" Height="22" FontSize="8"/>
+        <Label x:Name="Survival_Label" Content="Survival" HorizontalAlignment="Left" VerticalAlignment="Top" Width="69" Grid.Column="1" Margin="620,390,0,0" Height="22" FontSize="8"/>
+        <Label x:Name="Athletics_Label" Content="Athletics" HorizontalAlignment="Left" VerticalAlignment="Top" Width="69" Grid.Column="1" Margin="620,85,0,0" Height="22" FontSize="8"/>
+        <Label x:Name="Arcana_Label" Content="Arcana" HorizontalAlignment="Left" VerticalAlignment="Top" Width="69" Grid.Column="1" Margin="620,63,0,0" Height="22" FontSize="8"/>
+        <Label x:Name="Acrobatics_Label" Content="Acrobatics" HorizontalAlignment="Left" VerticalAlignment="Top" Width="69" Grid.Column="1" Margin="620,15,0,0" Height="22" FontSize="8"/>
+        <Label x:Name="AnimalHandling_Label" Content="Animal Handling" HorizontalAlignment="Left" VerticalAlignment="Top" Width="69" Grid.Column="1" Margin="620,39,0,0" Height="22" FontSize="8"/>
     </Grid>
 </Window>

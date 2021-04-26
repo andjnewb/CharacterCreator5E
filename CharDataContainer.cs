@@ -24,6 +24,7 @@ namespace GroupProject5ECharCreator
         public int characterLevel;
 
         public CharacterClass characterClass;
+        public Skills characterSkills;
 
         public CharDataContainer()
         {
@@ -39,6 +40,9 @@ namespace GroupProject5ECharCreator
         {
             //This is called when you click the roll stats button.
             characterClass.Roll();
+
+            //Set the skills only when we roll. This helps avoid null value errors.
+            characterSkills = new Skills(characterClass);
         }
 
         

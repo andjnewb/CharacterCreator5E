@@ -4,6 +4,7 @@ using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
 using System;
+using System.Collections.Generic;
 
 namespace GroupProject5ECharCreator
 {
@@ -97,6 +98,92 @@ namespace GroupProject5ECharCreator
             IntelligenceTextBlock.Text = CharContainer.characterClass.Intelligence.ToString();
             WisdomTextBlock.Text = CharContainer.characterClass.Wisdom.ToString();
             CharismaTextBlock.Text = CharContainer.characterClass.Charisma.ToString();
+
+            //Here we fill the abilities
+
+
+            foreach (var item in CharContainer.characterSkills.skills)
+            {
+                //Doing some awesome stuff with predicates and such. Honestly, after hours of debugging I still have no idea how this works. Let's just say that the ghost of Dennis Ritchie possessed me for a moment. 
+                switch (item.Item1)
+                {
+                    //Example of what would happen if geohotz was also a crack addict.These int variables have stupid names because apparently being inside of a case is still in the same scope as the other cases.
+                    case "Acrobatics":
+                        int value =  CharContainer.race.bonuses.Find(x => x.Item1 == RacialBonus.DexBonus).Item2 + item.Item2;
+                        Acrobatics_Text_Block.Text =  value.ToString();
+                        break;
+                    case "Animal Handling":
+                        int value13 = CharContainer.race.bonuses.Find(x => x.Item1 == RacialBonus.WisdomBonus).Item2 + item.Item2;
+                        AnimalHandling_Textblock.Text = value13.ToString();
+                        break;
+                    case "Arcana":
+                        int value2 = CharContainer.race.bonuses.Find(x => x.Item1 == RacialBonus.IntBonus).Item2 + item.Item2;
+                        Arcana_Textblock.Text = value2.ToString();
+                        break;
+                    case "Athletics":
+                        int value1 = CharContainer.race.bonuses.Find(x => x.Item1 == RacialBonus.StrBonus).Item2 + item.Item2;
+                        Athletics_Textblock.Text = value1.ToString();
+                        break;
+                    case "Deception":
+                        int value13222 = CharContainer.race.bonuses.Find(x => x.Item1 == RacialBonus.CharismaBonus).Item2 + item.Item2;
+                        Deception_Textblock.Text = value13222.ToString();
+                        break;
+                    case "History":
+                        int value24 = CharContainer.race.bonuses.Find(x => x.Item1 == RacialBonus.IntBonus).Item2 + item.Item2;
+                        History_Textblock.Text = value24.ToString();
+                        break;
+                    case "Insight":
+                        int value137 = CharContainer.race.bonuses.Find(x => x.Item1 == RacialBonus.WisdomBonus).Item2 + item.Item2;
+                        Insight_Textblock.Text = value137.ToString();
+                        break;
+                    case "Intimidation":
+                        int value1322 = CharContainer.race.bonuses.Find(x => x.Item1 == RacialBonus.CharismaBonus).Item2 + item.Item2;
+                        Intimidation_Textblock.Text = value1322.ToString();
+                        break;
+                    case "Investigation":
+                        int value222= CharContainer.race.bonuses.Find(x => x.Item1 == RacialBonus.IntBonus).Item2 + item.Item2;
+                        Investigation_Textblock.Text = value222.ToString();
+                        break;
+                    case "Medicine":
+                        int value1333 = CharContainer.race.bonuses.Find(x => x.Item1 == RacialBonus.WisdomBonus).Item2 + item.Item2;
+                        Medicine_Textblock.Text = value1333.ToString();
+                        break;
+                    case "Nature":
+                        int value234 = CharContainer.race.bonuses.Find(x => x.Item1 == RacialBonus.IntBonus).Item2 + item.Item2;
+                        Nature_Textblock.Text = value234.ToString();
+                        break;
+                    case "Perception":
+                        int value13225 = CharContainer.race.bonuses.Find(x => x.Item1 == RacialBonus.WisdomBonus).Item2 + item.Item2;
+                        Perception_Textblock.Text = value13225.ToString();
+                        break;
+                    case "Performance":
+                        int value14 = CharContainer.race.bonuses.Find(x => x.Item1 == RacialBonus.CharismaBonus).Item2 + item.Item2;
+                        Performance_Textblock.Text = value14.ToString();
+                        break;
+                    case "Persuasion":
+                        int value122 = CharContainer.race.bonuses.Find(x => x.Item1 == RacialBonus.CharismaBonus).Item2 + item.Item2;
+                        Deception_Textblock.Text = value122.ToString();
+                        break;
+                    case "Religion":
+                        int value266 = CharContainer.race.bonuses.Find(x => x.Item1 == RacialBonus.IntBonus).Item2 + item.Item2;
+                        Religion_Textblock.Text = value266.ToString();
+                        break;
+                    case "Sleight of Hand":
+                        int value23= CharContainer.race.bonuses.Find(x => x.Item1 == RacialBonus.DexBonus).Item2 + item.Item2;
+                        SleightOfHand_Textblock.Text = value23.ToString();
+                        break;
+                    case "Stealth":
+                        int value3 = CharContainer.race.bonuses.Find(x => x.Item1 == RacialBonus.DexBonus).Item2 + item.Item2;
+                        Stealth_Textblock.Text = value3.ToString();
+                        break;
+                    case "Survival":
+                        int value1111 = CharContainer.race.bonuses.Find(x => x.Item1 == RacialBonus.WisdomBonus).Item2 + item.Item2;
+                        Survival_Textblock.Text = value1111.ToString();
+                        break;
+
+
+                }
+            }
         }
 
         private void SaveContainer()

@@ -119,6 +119,8 @@ namespace GroupProject5ECharCreator
             Intelligence = results[3];
             Wisdom = results[4];
             Charisma = results[5];
+
+            
         }
 
        

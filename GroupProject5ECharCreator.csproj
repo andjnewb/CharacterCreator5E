@@ -68,6 +68,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="RaceFactory.cs" />
+    <Compile Include="Skills.cs" />
     <Compile Include="ViewCharacter.xaml.cs">
       <DependentUpon>ViewCharacter.xaml</DependentUpon>
     </Compile>
@@ -130,6 +131,7 @@
     <Content Include="5EDatabase.accdb">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Resource Include="brown-leather-texture-background.jpg" />
     <Resource Include="buttonStock1h.png" />
     <Resource Include="dndnewchar.jpg" />
     <Resource Include="dndwp.jpg" />
