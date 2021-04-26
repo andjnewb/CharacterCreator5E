@@ -56,6 +56,8 @@ namespace GroupProject5ECharCreator
             {
                 BackgroundListBox.Items.Add(str);
             }
+            
+            
 
 
             
@@ -76,6 +78,7 @@ namespace GroupProject5ECharCreator
         private void BackgroundListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             CharContainer.Background = BackgroundListBox.SelectedItem.ToString();
+            ContextInfoTextBlock.Text = CharContainer.Background;
         }
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
@@ -112,8 +115,10 @@ namespace GroupProject5ECharCreator
 
         private void RaceListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            Racial_Traits_Listbox.Items.Clear();
 
             
+
 
             //Cleaning up the bonus boxes if the race is changed.
             foreach (Label label in BonusGrid1.Children)
@@ -210,6 +215,11 @@ namespace GroupProject5ECharCreator
             if (CharContainer.race != null)
                 ContextInfoTextBlock.Text = CharContainer.race.RaceDescription;
 
+            //Filling up the racial traits LIstbox
+            foreach (var trait in CharContainer.race.racialTraits)
+            {
+                Racial_Traits_Listbox.Items.Add(trait.Item1);
+            }
 
         }
 
@@ -346,6 +356,18 @@ namespace GroupProject5ECharCreator
                 factory = ConvertChoicesToRacialBonus();
                 CharContainer.race = factory.GetRace();
                 ModifyBonusBoxes();
+            }
+        }
+
+        private void Racial_Traits_Listbox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            foreach (var trait in CharContainer.race.racialTraits)
+            {
+                if (Racial_Traits_Listbox.SelectedItem != null && Racial_Traits_Listbox.SelectedItem.ToString() == trait.Item1)
+                {
+                    ContextInfoTextBlock.Text = trait.Item2;
+                }
+
             }
         }
     }

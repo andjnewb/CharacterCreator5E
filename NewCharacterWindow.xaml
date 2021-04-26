@@ -27,21 +27,21 @@
         <TextBox x:Name="NameInputBox" ToolTip="Choose a name for your character..." HorizontalAlignment="Left" Height="23" Margin="159.667,38,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" TextChanged="TextBox_TextChanged" Grid.Column="1" Background="{x:Null}"/>
         <Label x:Name="NameBox" Content="Name thyself -" HorizontalAlignment="Left" Margin="15.667,34,0,0" VerticalAlignment="Top" Width="116" Grid.Column="1"/>
         <TextBlock x:Name="NameLblBox" HorizontalAlignment="Left" Margin="363.667,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Grid.Column="1"/>
-        <Button x:Name="RollStatsButton" ToolTip="Click here and something will happen!" Content="Roll Stats" HorizontalAlignment="Left" Margin="445.667,241,0,0" VerticalAlignment="Top" Width="75" Click="RollStatsButton_Click" Grid.Column="1"/>
+        <Button x:Name="RollStatsButton" ToolTip="Click here to roll your stats for your character. Bonuses for your race will be show to the right.!" Content="Roll Stats" HorizontalAlignment="Left" Margin="445.667,241,0,0" VerticalAlignment="Top" Width="75" Click="RollStatsButton_Click" Grid.Column="1"/>
         <TextBlock x:Name="StrengthTextBlock" HorizontalAlignment="Left" Margin="499.667,45,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="66" Grid.Column="1"/>
-        <Label x:Name="StrengthLabel" Content="Strength" HorizontalAlignment="Left" Margin="439.667,44,0,0" VerticalAlignment="Top" FontSize="10" Grid.Column="1"/>
+        <Label x:Name="StrengthLabel" Content="Strength" HorizontalAlignment="Left" Margin="439.667,44,0,0" VerticalAlignment="Top" FontSize="10" Grid.Column="1" ToolTip="Determines the raw physcial power of your character.!"/>
         <TextBlock x:Name="DexterityTextBlock" HorizontalAlignment="Left" Margin="499.667,77,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="66" Grid.Column="1"/>
-        <Label x:Name="DexterityLaberl" Content="Dexterity" HorizontalAlignment="Left" Margin="439.667,76,0,0" VerticalAlignment="Top" FontSize="10" Grid.Column="1"/>
-        <TextBlock x:Name="ConstitutionTextBlock" HorizontalAlignment="Left" Margin="499.667,105,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="66" Grid.Column="1"/>
-        <Label x:Name="ConstitutionLabel" Content="Consitution" HorizontalAlignment="Left" Margin="439.667,104,0,0" VerticalAlignment="Top" FontSize="10" Grid.Column="1"/>
-        <TextBlock x:Name="IntelligenceTextBlock" HorizontalAlignment="Left" Margin="499.667,137,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="66" Grid.Column="1"/>
-        <Label x:Name="IntelligenceLabel" Content="Intelligence" HorizontalAlignment="Left" Margin="439.667,136,0,0" VerticalAlignment="Top" FontSize="10" Grid.Column="1"/>
+        <Label x:Name="DexterityLaberl" Content="Dexterity" HorizontalAlignment="Left" Margin="439.667,76,0,0" VerticalAlignment="Top" FontSize="10" Grid.Column="1" ToolTip="Determines the agility and finesse your characyer possesses."/>
+        <TextBlock x:Name="ConstitutionTextBlock" HorizontalAlignment="Left" Margin="499.667,105,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="66" Grid.Column="1" />
+        <Label x:Name="ConstitutionLabel" Content="Consitution" HorizontalAlignment="Left" Margin="439.667,104,0,0" VerticalAlignment="Top" FontSize="10" Grid.Column="1" ToolTip="Your hardiness, in other words your overall resistance to affliction."/>
+        <TextBlock x:Name="IntelligenceTextBlock" HorizontalAlignment="Left" Margin="499.667,137,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="66" Grid.Column="1" />
+        <Label x:Name="IntelligenceLabel" Content="Intelligence" HorizontalAlignment="Left" Margin="439.667,136,0,0" VerticalAlignment="Top" FontSize="10" Grid.Column="1" ToolTip="The wit from which magical ability is often drawn."/>
         <TextBlock x:Name="WisdomTextBlock" HorizontalAlignment="Left" Margin="499.667,173,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="66" Grid.Column="1"/>
-        <Label x:Name="WisdomLabel" Content="Wisdom" HorizontalAlignment="Left" Margin="439.667,172,0,0" VerticalAlignment="Top" FontSize="10" Grid.Column="1"/>
+        <Label x:Name="WisdomLabel" Content="Wisdom" HorizontalAlignment="Left" Margin="439.667,172,0,0" VerticalAlignment="Top" FontSize="10" Grid.Column="1" ToolTip="Your commons sense and general knowledge of the world."/>
         <TextBlock x:Name="CharismaTextBlock" HorizontalAlignment="Left" Margin="499.667,205,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="66" Grid.Column="1"/>
-        <Label x:Name="CharismaLabel" Content="Charisma" HorizontalAlignment="Left" Margin="439.667,204,0,0" VerticalAlignment="Top" FontSize="10" Grid.Column="1"/>
-        <TextBlock x:Name="ContextInfoTextBlock" HorizontalAlignment="Left" Margin="620,116,0,0" TextWrapping="Wrap" Text="Select a field or statistic for more information." VerticalAlignment="Top" RenderTransformOrigin="0.707,1.083" Height="183" Width="146" FontSize="10" Grid.Column="1" FontWeight="ExtraBold" FontStretch="UltraExpanded"/>
-        <Button x:Name="SaveProgressButton" Content="Save progress" HorizontalAlignment="Left" Margin="691,392,0,0" VerticalAlignment="Top" Width="88" Click="SaveProgressButton_Click" Grid.Column="1"/>
+        <Label x:Name="CharismaLabel" Content="Charisma" HorizontalAlignment="Left" Margin="439.667,204,0,0" VerticalAlignment="Top" FontSize="10" Grid.Column="1" ToolTip="How To Win Friends and Influence People, by Dale Carnegie."/>
+        <TextBlock x:Name="ContextInfoTextBlock" HorizontalAlignment="Left" Margin="620,94,0,0" TextWrapping="Wrap" Text="Select a field or statistic for more information." VerticalAlignment="Top" RenderTransformOrigin="0.707,1.083" Height="186" Width="146" FontSize="10" Grid.Column="1" FontWeight="ExtraBold" FontStretch="UltraExpanded"/>
+        <Button x:Name="SaveProgressButton" Content="Save progress" HorizontalAlignment="Left" Margin="655,285,0,0" VerticalAlignment="Top" Width="84" Click="SaveProgressButton_Click" Grid.Column="1"/>
         <Grid x:Name="BonusGrid1" Grid.Column="1" Margin="577,45,174,195">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="2*"/>
@@ -53,7 +53,7 @@
                 <RowDefinition Height="0*"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <Label x:Name="Strength_Bonus_Box" Content="" HorizontalAlignment="Left" FontSize="10" Width="38" Grid.RowSpan="2" Grid.ColumnSpan="4" Margin="0,0,0,148" Height="23"/>
+            <Label x:Name="Strength_Bonus_Box" Content="" HorizontalAlignment="Left" FontSize="10" Width="38" Grid.RowSpan="2" Grid.ColumnSpan="4" Margin="0,0,0,159" Height="23" RenderTransformOrigin="0.579,0.391"/>
             <Label x:Name="Dexterity_Bonus_Box" Content="" HorizontalAlignment="Left" Margin="0,33,0,0" VerticalAlignment="Top" FontSize="10" Width="38" Grid.RowSpan="2" Grid.ColumnSpan="4"/>
             <Label x:Name="Constitution_Bonus_Box" Content="" HorizontalAlignment="Left" Margin="0,61,0,0" VerticalAlignment="Top" FontSize="10" Width="38" RenderTransformOrigin="0.5,0.5" Grid.RowSpan="2" Grid.ColumnSpan="4">
                 <Label.RenderTransform>
@@ -74,5 +74,8 @@
             <ComboBox x:Name="Bonus_2_Combo_Box" HorizontalAlignment="Left" Margin="0,55,0,0" VerticalAlignment="Top" Width="90" Background="{x:Null}" BorderBrush="{x:Null}" SelectedIndex="1" SelectionChanged="Bonus_2_Combo_Box_SelectionChanged"/>
             <Label x:Name="Racial_Bonus_Selection_Label" Content="Select your racial bonuses." HorizontalAlignment="Left" VerticalAlignment="Top" Width="90" FontSize="7"/>
         </Grid>
+        <Label x:Name="Racial_Traits_Label" Content="Racial Traits" Grid.Column="1" HorizontalAlignment="Left" Margin="421,261,0,0" VerticalAlignment="Top" Width="100"/>
+        <ListBox x:Name="Racial_Traits_Listbox" Grid.Column="1" HorizontalAlignment="Left" Height="85" Margin="421,285,0,0" VerticalAlignment="Top" Width="194" Background="{x:Null}" SelectionChanged="Racial_Traits_Listbox_SelectionChanged"/>
+        <Button x:Name="Select_Skills_Button" Content="Select skills" Grid.Column="1" HorizontalAlignment="Left" Margin="655,310,0,0" VerticalAlignment="Top" Width="84"/>
     </Grid>
 </Window>
