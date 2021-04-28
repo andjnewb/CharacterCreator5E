@@ -200,5 +200,7 @@
         <Label x:Name="Arcana_Label" Content="Arcana" HorizontalAlignment="Left" VerticalAlignment="Top" Width="69" Grid.Column="1" Margin="620,63,0,0" Height="22" FontSize="8"/>
         <Label x:Name="Acrobatics_Label" Content="Acrobatics" HorizontalAlignment="Left" VerticalAlignment="Top" Width="69" Grid.Column="1" Margin="620,15,0,0" Height="22" FontSize="8"/>
         <Label x:Name="AnimalHandling_Label" Content="Animal Handling" HorizontalAlignment="Left" VerticalAlignment="Top" Width="69" Grid.Column="1" Margin="620,39,0,0" Height="22" FontSize="8"/>
+        <ProgressBar x:Name="HitPointsBar" Grid.Column="1" HorizontalAlignment="Left" Height="10" Margin="160,15,0,0" VerticalAlignment="Top" Width="100" Minimum="1" Maximum="20" Value="0" Foreground="#FFB01D06"/>
+        <Label x:Name="Hit_Points_Label" Content="Hit Points" Grid.Column="1" HorizontalAlignment="Left" Margin="16,7,0,0" VerticalAlignment="Top" Width="110"/>
     </Grid>
 </Window>

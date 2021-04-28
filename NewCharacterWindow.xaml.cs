@@ -24,6 +24,8 @@ namespace GroupProject5ECharCreator
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            //Welcome to switch statment hell. Because one must do what they can with only one brain cell. 
+
             //Hide the racial bonus selection stuff, as only certain Races can select their bonuses.
             Bonus_1_Combo_Box.Visibility = Visibility.Hidden;
             Bonus_2_Combo_Box.Visibility = Visibility.Hidden;
@@ -74,6 +76,9 @@ namespace GroupProject5ECharCreator
             CharContainer.characterClass.ClassName = ClassListBox.SelectedItem.ToString();
             CharContainer.characterClass.changeClass(ClassListBox.SelectedItem.ToString());
             ContextInfoTextBlock.Text = CharContainer.characterClass.ClassData.classDescription;
+            HitPointsBar.Maximum = CharContainer.characterClass.ClassData.hitDie.Item2;
+            HitPointsBar.Value = CharContainer.characterClass.ClassData.hitPoints;
+
         }
 
         private void BackgroundListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -90,6 +95,9 @@ namespace GroupProject5ECharCreator
 
         private void RollStatsButton_Click(object sender, RoutedEventArgs e)
         {
+            
+
+
             //Rolls the stats, fill all of the text block with the appropiate data in CharContainer's character class object
             CharContainer.RollStats();
             StrengthTextBlock.Text = CharContainer.characterClass.Strength.ToString();
@@ -99,11 +107,15 @@ namespace GroupProject5ECharCreator
             WisdomTextBlock.Text = CharContainer.characterClass.Wisdom.ToString();
             CharismaTextBlock.Text = CharContainer.characterClass.Charisma.ToString();
 
+
+
             //Here we fill the abilities
 
 
             foreach (var item in CharContainer.characterSkills.skills)
             {
+                
+
                 //Doing some awesome stuff with predicates and such. Honestly, after hours of debugging I still have no idea how this works. Let's just say that the ghost of Dennis Ritchie possessed me for a moment. 
                 switch (item.Item1)
                 {
@@ -162,7 +174,7 @@ namespace GroupProject5ECharCreator
                         break;
                     case "Persuasion":
                         int value122 = CharContainer.race.bonuses.Find(x => x.Item1 == RacialBonus.CharismaBonus).Item2 + item.Item2;
-                        Deception_Textblock.Text = value122.ToString();
+                        Persuasion_Textblock.Text = value122.ToString();
                         break;
                     case "Religion":
                         int value266 = CharContainer.race.bonuses.Find(x => x.Item1 == RacialBonus.IntBonus).Item2 + item.Item2;

@@ -144,12 +144,11 @@ namespace GroupProject5ECharCreator
     public class Dwarf : Race
     {
         //This class inherits from the abstract class Race
-        int _ConstBonusAmt;
         public Dwarf(int ConstBonusAmount)
         {
-            _ConstBonusAmt = ConstBonusAmount;
+            
 
-            bonuses =  new List<(RacialBonus, int)> { (RacialBonus.ConstBonus, _ConstBonusAmt)};//This is our list of tuples. Dwarves, for examples. get a constitution bonus of +2. For some reason, I can't get .Add() to work for this list so we're going with initializing it here for now.
+            bonuses =  new List<(RacialBonus, int)> { (RacialBonus.ConstBonus, ConstBonusAmount)};//This is our list of tuples. Dwarves, for examples. get a constitution bonus of +2. For some reason, I can't get .Add() to work for this list so we're going with initializing it here for now.
             RaceName = "Dwarf"; //Might not be necessary, but could be useful for later.
             RaceDescription = "Dwarves are hardy masters of both stone and metal. They make excellent fighters.";
             racialTraits = container.GetRacialTraits(RaceName);
@@ -161,12 +160,12 @@ namespace GroupProject5ECharCreator
     public class Elf : Race
     {
         //This class inherits from the abstract class Race
-        int _DexterityBonusAmt;
+       
         public Elf(int DexterityBonusAmount)
         {
             
-            _DexterityBonusAmt = DexterityBonusAmount;
-            bonuses = new List<(RacialBonus, int)> { (RacialBonus.DexBonus, _DexterityBonusAmt) };
+            
+            bonuses = new List<(RacialBonus, int)> { (RacialBonus.DexBonus, DexterityBonusAmount) };
             RaceName = "Elf";
             RaceDescription = "Graceful, magical, and one with nature, Elves are excellent fighters with innate abilities that make them in-tune with the natural world.";
             racialTraits = container.GetRacialTraits(RaceName);
@@ -178,15 +177,13 @@ namespace GroupProject5ECharCreator
     {
         //Dragonborn get two racial bonuses. This is a work around.
 
-        int _StrBonusAmt;
-        int _CharismaBonusAmt;
+
         public Dragonborn(int StrBonusAmount, int CharismaBonusAmount)
         {
-            _StrBonusAmt = StrBonusAmount;
-            _CharismaBonusAmt = CharismaBonusAmount;
+            
 
 
-            bonuses = new List<(RacialBonus, int)> { (RacialBonus.StrBonus, _StrBonusAmt) , (RacialBonus.CharismaBonus, _CharismaBonusAmt) };
+            bonuses = new List<(RacialBonus, int)> { (RacialBonus.StrBonus, StrBonusAmount) , (RacialBonus.CharismaBonus, CharismaBonusAmount) };
             RaceName = "Dragonborn";
             RaceDescription = "Dragonborn are known for their striking appearance, with a Humanoid body covered in scales. They are strong and charismatic.";
             racialTraits = container.GetRacialTraits(RaceName);
@@ -200,13 +197,13 @@ namespace GroupProject5ECharCreator
     public class Gnome : Race
     {
         //This class inherits from the abstract class Race
-        int _IntBonusAmt;
+        
         public Gnome(int IntBonusAmount)
         {
        
-            _IntBonusAmt = IntBonusAmount;
+           
 
-            bonuses = new List<(RacialBonus, int)> { (RacialBonus.IntBonus, _IntBonusAmt) };
+            bonuses = new List<(RacialBonus, int)> { (RacialBonus.IntBonus, IntBonusAmount) };
             RaceName = "Gnome";
             RaceDescription = "Don't let the Gnome's dimunitive stature fool you. They are bright with ample energy and intelligence to match it.";
             racialTraits = container.GetRacialTraits(RaceName);

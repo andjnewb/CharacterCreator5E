@@ -39,6 +39,8 @@ namespace GroupProject5ECharCreator
             if (ChangeTo == "Barbarian")
             {
                 ClassData = new Barbarian();
+                //Using the hit die for the barbarian. set their hitpoints. It was easier to do it here than in IClass.cs because it only changes when the user changes their DND class.
+                
             }
 
             if (ChangeTo == "Bard")
@@ -100,6 +102,8 @@ namespace GroupProject5ECharCreator
             {
                 ClassData = new Wizard();
             }
+
+            ClassData.hitPoints = Next(ClassData.hitDie.Item1, ClassData.hitDie.Item2);
         }
 
 
