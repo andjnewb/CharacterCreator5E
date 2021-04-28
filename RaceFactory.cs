@@ -19,6 +19,7 @@ namespace GroupProject5ECharCreator
 
     }
 
+    [Serializable]
     public class RacialTraitsContainer
     {
         public List<(string, string)> dwarfTraits = new List<(string, string)> 
@@ -227,6 +228,7 @@ namespace GroupProject5ECharCreator
 
     }
 
+    [Serializable]
     public class Halfling : Race 
     {
         public Halfling(int DexBonusAmount)
@@ -241,6 +243,7 @@ namespace GroupProject5ECharCreator
 
     }
 
+    [Serializable]
     public class HalfOrc : Race
     {
         public HalfOrc(int StrengthBonusAmount, int ConstitutionBonusAmount)
@@ -252,6 +255,7 @@ namespace GroupProject5ECharCreator
         }
     }
 
+    [Serializable]
     public class Human : Race
     {
         public Human(int AbilityBonusAmount)
@@ -272,7 +276,7 @@ namespace GroupProject5ECharCreator
 
         }
     }
-
+    [Serializable]
     public class Tiefling : Race
     {
         public Tiefling(int CharismaBonusAmount, int IntelligenceBonusAmount)
@@ -307,7 +311,7 @@ namespace GroupProject5ECharCreator
         }
 
     }
-
+    [Serializable]
     public class ElfFactory : RaceFactory
     {
 
@@ -319,7 +323,7 @@ namespace GroupProject5ECharCreator
             return new Elf(2);
         }
     }
-
+    [Serializable]
     public class DragonBornFactory : RaceFactory
     {
 
@@ -336,7 +340,7 @@ namespace GroupProject5ECharCreator
         }
 
     }
-
+    [Serializable]
     public class GnomeFactory : RaceFactory 
     {
         public GnomeFactory()
@@ -347,7 +351,7 @@ namespace GroupProject5ECharCreator
             return new Gnome(2);
         }
     }
-
+    [Serializable]
     public class HalfElfFactory : RaceFactory
     {
         RacialBonus _choice1;
@@ -364,7 +368,7 @@ namespace GroupProject5ECharCreator
             return new HalfElf(_choice1, _choice2);
         }
     }
-
+    [Serializable]
     public class HalflingFactory : RaceFactory
     {
         public HalflingFactory()
@@ -375,7 +379,7 @@ namespace GroupProject5ECharCreator
             return new Halfling(2);
         }
     }
-
+    [Serializable]
     public class HalfOrcFactory : RaceFactory
     {
         public HalfOrcFactory()
@@ -388,7 +392,7 @@ namespace GroupProject5ECharCreator
 
 
     }
-
+    [Serializable]
     public class TieflingFactory : RaceFactory
     {
         public TieflingFactory()
@@ -399,7 +403,7 @@ namespace GroupProject5ECharCreator
             return new Tiefling(2, 1);
         }
     }
-
+    [Serializable]
     public class HumanFactory : RaceFactory
     {
         public HumanFactory()
