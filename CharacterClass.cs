@@ -14,6 +14,7 @@ namespace GroupProject5ECharCreator
         //Contains all of the information about the character being created. The class at the end has nothing to do with DND classes, and that probably wasn't the best name to pick.
 
         public int HitPoints;
+        public int ArmorClass;
         public int Strength;
         public int Dexterity;
         public int Constitution;
@@ -39,7 +40,7 @@ namespace GroupProject5ECharCreator
             if (ChangeTo == "Barbarian")
             {
                 ClassData = new Barbarian();
-                //Using the hit die for the barbarian. set their hitpoints. It was easier to do it here than in IClass.cs because it only changes when the user changes their DND class.
+                
                 
             }
 
@@ -103,6 +104,7 @@ namespace GroupProject5ECharCreator
                 ClassData = new Wizard();
             }
 
+            
             ClassData.hitPoints = Next(ClassData.hitDie.Item1, ClassData.hitDie.Item2);
         }
 

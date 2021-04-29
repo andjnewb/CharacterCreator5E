@@ -131,6 +131,16 @@
     <Content Include="5EDatabase.accdb">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Resource Include="Charisma.png" />
+    <Resource Include="Wisdom.png" />
+    <Resource Include="int.png" />
+    <Resource Include="Intelligence.png" />
+    <Resource Include="Constitution2.png" />
+    <Resource Include="Constitution.png" />
+    <Resource Include="Constitution.jpg" />
+    <Resource Include="dexterity.png" />
+    <Resource Include="strength.png" />
+    <Resource Include="shield.png" />
     <Resource Include="brown-leather-texture-background.jpg" />
     <Resource Include="buttonStock1h.png" />
     <Resource Include="dndnewchar.jpg" />

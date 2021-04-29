@@ -13,7 +13,7 @@
     <Window.Background>
         <ImageBrush ImageSource="dndnewchar.jpg"/>
     </Window.Background>
-    <Grid HorizontalAlignment="Left" Height="422" VerticalAlignment="Top" Width="790" Margin="0,0,0,-3" IsManipulationEnabled="True" RenderTransformOrigin="0.5,0.5">
+    <Grid HorizontalAlignment="Left" Height="422" VerticalAlignment="Bottom" Width="790" Margin="0,0,0,-3" IsManipulationEnabled="True" RenderTransformOrigin="0.5,0.5">
         <Grid.RenderTransform>
             <TransformGroup>
                 <ScaleTransform/>
@@ -39,13 +39,13 @@
         <TextBlock x:Name="StrengthTextBlock" HorizontalAlignment="Left" Margin="499.667,45,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="66" Grid.Column="1"/>
         <Label x:Name="StrengthLabel" Content="Strength" HorizontalAlignment="Left" Margin="439.667,44,0,0" VerticalAlignment="Top" FontSize="10" Grid.Column="1" ToolTip="Determines the raw physcial power of your character.!"/>
         <TextBlock x:Name="DexterityTextBlock" HorizontalAlignment="Left" Margin="499.667,77,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="66" Grid.Column="1"/>
-        <Label x:Name="DexterityLaberl" Content="Dexterity" HorizontalAlignment="Left" Margin="439.667,76,0,0" VerticalAlignment="Top" FontSize="10" Grid.Column="1" ToolTip="Determines the agility and finesse your characyer possesses."/>
+        <Label x:Name="DexterityLaberl" Content="Dexterity" HorizontalAlignment="Left" Margin="439.667,76,0,0" VerticalAlignment="Top" FontSize="10" Grid.Column="1" ToolTip="Determines the agility and finesse your character possesses."/>
         <TextBlock x:Name="ConstitutionTextBlock" HorizontalAlignment="Left" Margin="499.667,105,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="66" Grid.Column="1" />
         <Label x:Name="ConstitutionLabel" Content="Consitution" HorizontalAlignment="Left" Margin="439.667,104,0,0" VerticalAlignment="Top" FontSize="10" Grid.Column="1" ToolTip="Your hardiness, in other words your overall resistance to affliction."/>
         <TextBlock x:Name="IntelligenceTextBlock" HorizontalAlignment="Left" Margin="499.667,137,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="66" Grid.Column="1" />
         <Label x:Name="IntelligenceLabel" Content="Intelligence" HorizontalAlignment="Left" Margin="439.667,136,0,0" VerticalAlignment="Top" FontSize="10" Grid.Column="1" ToolTip="The wit from which magical ability is often drawn."/>
         <TextBlock x:Name="WisdomTextBlock" HorizontalAlignment="Left" Margin="499.667,173,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="66" Grid.Column="1"/>
-        <Label x:Name="WisdomLabel" Content="Wisdom" HorizontalAlignment="Left" Margin="439.667,172,0,0" VerticalAlignment="Top" FontSize="10" Grid.Column="1" ToolTip="Your commons sense and general knowledge of the world."/>
+        <Label x:Name="WisdomLabel" Content="Wisdom" HorizontalAlignment="Left" Margin="439.667,172,0,0" VerticalAlignment="Top" FontSize="10" Grid.Column="1" ToolTip="Your common sense and general knowledge of the world."/>
         <TextBlock x:Name="CharismaTextBlock" HorizontalAlignment="Left" Margin="499.667,205,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="66" Grid.Column="1"/>
         <Label x:Name="CharismaLabel" Content="Charisma" HorizontalAlignment="Left" Margin="439.667,204,0,0" VerticalAlignment="Top" FontSize="10" Grid.Column="1" ToolTip="How To Win Friends and Influence People, by Dale Carnegie."/>
         <TextBlock x:Name="ContextInfoTextBlock" HorizontalAlignment="Left" Margin="265,166,0,0" TextWrapping="Wrap" Text="Select a field or statistic for more information." VerticalAlignment="Top" RenderTransformOrigin="0.707,1.083" Height="186" Width="129" FontSize="10" Grid.Column="1" FontWeight="ExtraBold" FontStretch="UltraExpanded"/>
@@ -202,5 +202,14 @@
         <Label x:Name="AnimalHandling_Label" Content="Animal Handling" HorizontalAlignment="Left" VerticalAlignment="Top" Width="69" Grid.Column="1" Margin="620,39,0,0" Height="22" FontSize="8"/>
         <ProgressBar x:Name="HitPointsBar" Grid.Column="1" HorizontalAlignment="Left" Height="10" Margin="160,15,0,0" VerticalAlignment="Top" Width="100" Minimum="1" Maximum="20" Value="0" Foreground="#FFB01D06"/>
         <Label x:Name="Hit_Points_Label" Content="Hit Points" Grid.Column="1" HorizontalAlignment="Left" Margin="16,7,0,0" VerticalAlignment="Top" Width="110"/>
+        <Image x:Name="Armor_Class_Icon" Grid.Column="1" HorizontalAlignment="Left" Height="24" Margin="421,13,0,0" VerticalAlignment="Top" Width="15" Source="shield.png" Stretch="Fill"/>
+        <Label x:Name="Armor_Class_Label" Content="Armor Class" HorizontalAlignment="Left" Margin="438,14,0,0" VerticalAlignment="Top" FontSize="10" Grid.Column="1" ToolTip="Determines your damage reduction on incoming attacks. Higher values are better. Note that this value represents an un-armored character. If you have armor, you will need to add that armor's AC value to this to get your actual AC."/>
+        <TextBlock x:Name="Armor_Class_Text_Box" HorizontalAlignment="Left" Margin="501,17,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="66" Grid.Column="1"/>
+        <Image x:Name="Strength_Icon" Grid.Column="1" HorizontalAlignment="Left" Height="24" Margin="421,45,0,0" VerticalAlignment="Top" Width="15" Source="strength.png"/>
+        <Image x:Name="Dexterity_Icon" Grid.Column="1" HorizontalAlignment="Left" Height="24" Margin="421,81,0,0" VerticalAlignment="Top" Width="15" Source="dexterity.png"/>
+        <Image x:Name="Intelligence_Icon" Grid.Column="1" HorizontalAlignment="Left" Height="24" Margin="421,137,0,0" VerticalAlignment="Top" Width="15" Source="int.png"/>
+        <Image x:Name="Wisdom_Icon" Grid.Column="1" HorizontalAlignment="Left" Height="24" Margin="421,175,0,0" VerticalAlignment="Top" Width="15" Source="Wisdom.png"/>
+        <Image x:Name="Charisma_Icon" Grid.Column="1" HorizontalAlignment="Left" Height="38" Margin="415,200,0,0" VerticalAlignment="Top" Width="25" Source="Charisma.png"/>
+        <Image x:Name="Constitution_Icon" Grid.Column="1" HorizontalAlignment="Left" Height="24" Margin="421,107,0,0" VerticalAlignment="Top" Width="15" Source="Constitution2.png"/>
     </Grid>
 </Window>

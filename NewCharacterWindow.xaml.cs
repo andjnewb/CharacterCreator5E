@@ -66,7 +66,7 @@ namespace GroupProject5ECharCreator
             
         }
 
-
+       
       
 
        
@@ -75,9 +75,12 @@ namespace GroupProject5ECharCreator
         {
             CharContainer.characterClass.ClassName = ClassListBox.SelectedItem.ToString();
             CharContainer.characterClass.changeClass(ClassListBox.SelectedItem.ToString());
+            CharContainer.SetModifiers();
             ContextInfoTextBlock.Text = CharContainer.characterClass.ClassData.classDescription;
             HitPointsBar.Maximum = CharContainer.characterClass.ClassData.hitDie.Item2;
             HitPointsBar.Value = CharContainer.characterClass.ClassData.hitPoints;
+            CharContainer.UpdateArmorClass();
+            Armor_Class_Text_Box.Text = CharContainer.characterClass.ArmorClass.ToString();
 
         }
 
@@ -95,8 +98,9 @@ namespace GroupProject5ECharCreator
 
         private void RollStatsButton_Click(object sender, RoutedEventArgs e)
         {
-            
 
+            if (CharContainer.race == null)
+                return;
 
             //Rolls the stats, fill all of the text block with the appropiate data in CharContainer's character class object
             CharContainer.RollStats();
@@ -106,7 +110,8 @@ namespace GroupProject5ECharCreator
             IntelligenceTextBlock.Text = CharContainer.characterClass.Intelligence.ToString();
             WisdomTextBlock.Text = CharContainer.characterClass.Wisdom.ToString();
             CharismaTextBlock.Text = CharContainer.characterClass.Charisma.ToString();
-
+            CharContainer.SetModifiers();
+            CharContainer.UpdateArmorClass();
 
 
             //Here we fill the abilities
@@ -215,8 +220,8 @@ namespace GroupProject5ECharCreator
         private void RaceListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             Racial_Traits_Listbox.Items.Clear();
-
             
+
 
 
             //Cleaning up the bonus boxes if the race is changed.
@@ -319,6 +324,9 @@ namespace GroupProject5ECharCreator
             {
                 Racial_Traits_Listbox.Items.Add(trait.Item1);
             }
+
+            CharContainer.UpdateArmorClass();
+            Armor_Class_Text_Box.Text = CharContainer.characterClass.ArmorClass.ToString();
 
         }
 
