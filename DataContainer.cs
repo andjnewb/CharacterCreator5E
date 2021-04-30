@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using System.Data.OleDb;
 using System.IO;
 using System.Drawing;
+using Microsoft.Office.Interop.Access.Dao;
+
 
 
 
@@ -22,6 +24,8 @@ namespace GroupProject5ECharCreator
         public List<String> races;
         public List<String> classes;
         public List<Tuple<string,string>> backgrounds;
+        public List<Tuple<string, Image>> raceImages;
+        public Image test;
 
 
         public DataContainer()
@@ -34,10 +38,12 @@ namespace GroupProject5ECharCreator
             races = new List<string>();
             classes = new List<string>();
             backgrounds = new List<Tuple<string, string>>();
+            raceImages = new List<Tuple<string, Image>>();
             
             LoadRaces();
             LoadClasses();
             LoadBackgrounds();
+            GetRaceImages();
         }
 
         void LoadRaces()
@@ -120,31 +126,76 @@ namespace GroupProject5ECharCreator
             }
 
 
-
+           
             reader.Close();
             connection.Close();
             command = null;
         }
 
 
-        public Image GetRaceImage(string race )
+        public void GetRaceImages()
         {
             //NOT CURRENTLY IN USE
+            List<string> RaceNames = new List<string>();
+            List<Image> RaceImages = new List<Image>();
 
-            command = new OleDbCommand("Select * Image from Race_Images", connection);
+
+            command = new OleDbCommand("SELECT Race FROM Races", connection);
             connection.Open();
+            
 
 
+            reader = command.ExecuteReader();
 
 
             //MemoryStream memoryStream = new 
 
-            return null;
+            while (reader.Read())
+            {
+                RaceNames.Add(reader.GetString(0));
+            }
+
+            command = new OleDbCommand("SELECT Image FROM Races", connection);
+
+            reader = command.ExecuteReader();
+
+
+
+            while (reader.Read())
+            {
+
+                Byte[] buffer = new Byte[10000];
+
+                buffer = (byte[])reader.GetValue(0);
+
+                Image image = ByteArrayToImage(buffer);
+
+                RaceImages.Add(image);
+                
+
+            }
+
+            for (int i = 0; i < RaceNames.Count; i++)
+            {
+                raceImages.Add(Tuple.Create(RaceNames[i], RaceImages[i]));
+            }
+
+            
+            
+
+            
 
         }
-        
 
-        
+        Image ByteArrayToImage(byte[] b)
+        {
+            ImageConverter converter = new ImageConverter();
+            Image img = (Image)converter.ConvertFrom(b);
+            
+            return img;
+        }
+
+
 
 
     }

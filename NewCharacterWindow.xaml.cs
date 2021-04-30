@@ -1,10 +1,12 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
+
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 
 namespace GroupProject5ECharCreator
 {
@@ -13,10 +15,15 @@ namespace GroupProject5ECharCreator
     /// </summary>
     public partial class NewCharacterWindow : Window
     {
+        //Warning! This code is a disgusting mess. If you are easily nauseasted, venture no further.
         //Holds data related to the 5EDatabase.accdb file
         DataContainer container = new DataContainer();
         CharDataContainer CharContainer = new CharDataContainer();
         RaceFactory factory;
+        System.Windows.Forms.PictureBox RacePicture = new System.Windows.Forms.PictureBox();
+
+
+        
         public NewCharacterWindow()
         {
             InitializeComponent();
@@ -66,7 +73,11 @@ namespace GroupProject5ECharCreator
                 BackgroundListBox.Items.Add(item.Item1);
             }
 
+            //HOLY FUCKING SHIT FINALLY FUCK MY FUCKING LIFE
 
+
+            Race_Image_Host.Child = RacePicture;
+            RacePicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             
         }
 
@@ -341,6 +352,16 @@ namespace GroupProject5ECharCreator
                 Racial_Traits_Listbox.Items.Add(trait.Item1);
             }
 
+            foreach (var image in container.raceImages)
+            {
+                if (CharContainer.RaceName == image.Item1)
+                {
+                    
+                    RacePicture.Image = image.Item2;
+                    
+                }
+            }
+
             CharContainer.SetModifiers();
             CharContainer.UpdateArmorClass();
             Armor_Class_Text_Box.Text = CharContainer.characterClass.ArmorClass.ToString();
@@ -494,6 +515,8 @@ namespace GroupProject5ECharCreator
 
             }
         }
+
+        
     }
 
     
