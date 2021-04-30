@@ -26,6 +26,8 @@
         <TextBlock x:Name="Race_Display_Box" HorizontalAlignment="Left" Margin="109,191,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="49"/>
         <TextBlock x:Name="Class_Text_Block" HorizontalAlignment="Left" Margin="10,214,0,0" TextWrapping="Wrap" Text="Class" VerticalAlignment="Top" FontSize="14" FontFamily="MV Boli" FontWeight="Bold"/>
         <TextBlock x:Name="Class_Display_Box" HorizontalAlignment="Left" Margin="109,214,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="49"/>
+        <TextBlock x:Name="Background_Label" HorizontalAlignment="Left" Margin="655,20,0,0" Text="Background" TextWrapping="Wrap" VerticalAlignment="Top" Width="85"/>
+        <TextBlock x:Name="Background_Description_Textblock" HorizontalAlignment="Left" Margin="610,41,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="185" Width="155"/>
 
     </Grid>
 </Window>

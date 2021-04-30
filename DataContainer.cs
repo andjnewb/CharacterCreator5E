@@ -21,7 +21,8 @@ namespace GroupProject5ECharCreator
 
         public List<String> races;
         public List<String> classes;
-        public List<String> backgrounds;
+        public List<Tuple<string,string>> backgrounds;
+
 
         public DataContainer()
         {
@@ -32,7 +33,7 @@ namespace GroupProject5ECharCreator
             
             races = new List<string>();
             classes = new List<string>();
-            backgrounds = new List<string>();
+            backgrounds = new List<Tuple<string, string>>();
             
             LoadRaces();
             LoadClasses();
@@ -84,16 +85,41 @@ namespace GroupProject5ECharCreator
         {
             //This function will load all of the data from the Background column in the Backgrounds table
 
+            List<string> backgroundNames = new List<string>();
+            List<string> backgroundsDescriptions = new List<string>();
+
             command = new OleDbCommand("SELECT Background FROM Backgrounds", connection);
             connection.Open();
 
             reader = command.ExecuteReader();
 
+            
+
             //Loops through the entire column Class
             while (reader.Read())
             {
-                backgrounds.Add(reader.GetString(0));
+                //Add the names charlatan urchin etc. to a list
+                backgroundNames.Add(reader.GetString(0));
+
+                
+                
             }
+
+            command = new OleDbCommand("SELECT Description FROM Backgrounds ", connection);
+
+            reader = command.ExecuteReader();
+
+            while (reader.Read())
+            {
+                backgroundsDescriptions.Add(reader.GetString(0));
+            }
+
+            for (int i = 0; i < backgroundNames.Count; i++)
+            {
+                backgrounds.Add(Tuple.Create(backgroundNames[i], backgroundsDescriptions[i]));
+            }
+
+
 
             reader.Close();
             connection.Close();

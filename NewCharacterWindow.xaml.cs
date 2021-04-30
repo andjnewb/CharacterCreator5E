@@ -54,13 +54,17 @@ namespace GroupProject5ECharCreator
             {
                 ClassListBox.Items.Add(str);
             }
+
             //Same as above.
-            foreach (string str in container.backgrounds)
+            //foreach (string str in container.backgrounds)
+            //{
+            //    BackgroundListBox.Items.Add(str);
+            //}
+
+            foreach (var item in container.backgrounds)
             {
-                BackgroundListBox.Items.Add(str);
+                BackgroundListBox.Items.Add(item.Item1);
             }
-            
-            
 
 
             
@@ -79,6 +83,8 @@ namespace GroupProject5ECharCreator
             ContextInfoTextBlock.Text = CharContainer.characterClass.ClassData.classDescription;
             HitPointsBar.Maximum = CharContainer.characterClass.ClassData.hitDie.Item2;
             HitPointsBar.Value = CharContainer.characterClass.ClassData.hitPoints;
+            HP_Textblock.Text = CharContainer.characterClass.ClassData.hitPoints.ToString();
+            CharContainer.SetModifiers();
             CharContainer.UpdateArmorClass();
             Armor_Class_Text_Box.Text = CharContainer.characterClass.ArmorClass.ToString();
 
@@ -86,8 +92,18 @@ namespace GroupProject5ECharCreator
 
         private void BackgroundListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            CharContainer.Background = BackgroundListBox.SelectedItem.ToString();
-            ContextInfoTextBlock.Text = CharContainer.Background;
+
+
+            
+            foreach (var item in container.backgrounds)
+            {
+                if (item.Item1 == BackgroundListBox.SelectedItem.ToString())
+                {
+                    ContextInfoTextBlock.Text = item.Item2;
+                    CharContainer.background = Tuple.Create(item.Item1, item.Item2);
+                    break;
+                }
+            }
         }
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
@@ -325,6 +341,7 @@ namespace GroupProject5ECharCreator
                 Racial_Traits_Listbox.Items.Add(trait.Item1);
             }
 
+            CharContainer.SetModifiers();
             CharContainer.UpdateArmorClass();
             Armor_Class_Text_Box.Text = CharContainer.characterClass.ArmorClass.ToString();
 
@@ -333,7 +350,7 @@ namespace GroupProject5ECharCreator
         void ModifyBonusBoxes()
         {
 
-            //Here,
+            //Here, we modify the bonuses to the right of the stats by checking Race's bonuses value. 
             foreach (var bonus in CharContainer.race.bonuses)
             {
                 switch (bonus.Item1)
@@ -443,7 +460,7 @@ namespace GroupProject5ECharCreator
 
         private void Bonus_2_Combo_Box_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            ContextInfoTextBlock.Text = "As a half elf, you get to select your racial bonuses! Choose from one of the 5. Note that you can't stack bonuses i.e. you can't select strength twice.";
+            
 
 
             if (Bonus_1_Combo_Box.SelectedIndex == Bonus_2_Combo_Box.SelectedIndex)

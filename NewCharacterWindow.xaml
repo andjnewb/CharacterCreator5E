@@ -6,14 +6,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GroupProject5ECharCreator"
         mc:Ignorable="d"
-        Title="New Character" Height="450" Width="800" Loaded="Window_Loaded">
+        Title="New Character" Height="450" Width="800" Loaded="Window_Loaded" ResizeMode="NoResize" SizeToContent="WidthAndHeight">
     <Window.Resources>
 
     </Window.Resources>
     <Window.Background>
         <ImageBrush ImageSource="dndnewchar.jpg"/>
     </Window.Background>
-    <Grid HorizontalAlignment="Left" Height="422" VerticalAlignment="Bottom" Width="790" Margin="0,0,0,-3" IsManipulationEnabled="True" RenderTransformOrigin="0.5,0.5">
+    <Grid HorizontalAlignment="Center" Height="425" VerticalAlignment="Top" Width="800" Margin="0,10,0,0" IsManipulationEnabled="True" RenderTransformOrigin="0.5,0.5">
         <Grid.RenderTransform>
             <TransformGroup>
                 <ScaleTransform/>
@@ -27,10 +27,10 @@
             <ColumnDefinition Width="789*"/>
         </Grid.ColumnDefinitions>
         <ListBox x:Name="RaceListBox" HorizontalAlignment="Left" Height="87" Margin="160,66,0,0" VerticalAlignment="Top" Width="100" SelectionChanged="RaceListBox_SelectionChanged" IsSynchronizedWithCurrentItem="True" Grid.Column="1" Background="{x:Null}"/>
-        <Label x:Name="RaceSelectLabel" Content="Select your race-" HorizontalAlignment="Left" Margin="15.667,66,0,0" VerticalAlignment="Top" Width="121" Grid.Column="1"/>
+        <Label x:Name="RaceSelectLabel" Content="Select your race-" HorizontalAlignment="Left" Margin="15.667,66,0,0" VerticalAlignment="Top" Width="121" Grid.Column="1" ToolTip="This is your race, which determines physical traits as well as abilities and bonuses."/>
         <ListBox x:Name="ClassListBox" HorizontalAlignment="Left" Height="89" Margin="160,166,0,0" VerticalAlignment="Top" Width="100" SelectionChanged="ClassListBox_SelectionChanged" Grid.Column="1" Background="{x:Null}"/>
-        <Label x:Name="ClassSelectLabel" Content="Select your class-" HorizontalAlignment="Left" Margin="10,154,0,0" VerticalAlignment="Top" Width="116" Grid.Column="1"/>
-        <ListBox x:Name="BackgroundListBox" HorizontalAlignment="Left" Height="85" Margin="160,285,0,0" VerticalAlignment="Top" Width="100" SelectionChanged="BackgroundListBox_SelectionChanged" Grid.Column="1" Background="{x:Null}"/>
+        <Label x:Name="ClassSelectLabel" Content="Select your class-" HorizontalAlignment="Left" Margin="10,154,0,0" VerticalAlignment="Top" Width="116" Grid.Column="1" ToolTip="This is your character class."/>
+        <ListBox x:Name="BackgroundListBox" HorizontalAlignment="Left" Height="85" Margin="160,273,0,0" VerticalAlignment="Top" Width="100" SelectionChanged="BackgroundListBox_SelectionChanged" Grid.Column="1" Background="{x:Null}"/>
         <Label x:Name="SelectBackgroundLabel" Content="Select your background -" HorizontalAlignment="Left" Margin="-5,273,0,0" VerticalAlignment="Top" Width="156" Grid.ColumnSpan="2"/>
         <TextBox x:Name="NameInputBox" ToolTip="Choose a name for your character..." HorizontalAlignment="Left" Height="23" Margin="159.667,38,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" TextChanged="TextBox_TextChanged" Grid.Column="1" Background="{x:Null}"/>
         <Label x:Name="NameBox" Content="Name thyself -" HorizontalAlignment="Left" Margin="15.667,34,0,0" VerticalAlignment="Top" Width="116" Grid.Column="1"/>
@@ -48,7 +48,7 @@
         <Label x:Name="WisdomLabel" Content="Wisdom" HorizontalAlignment="Left" Margin="439.667,172,0,0" VerticalAlignment="Top" FontSize="10" Grid.Column="1" ToolTip="Your common sense and general knowledge of the world."/>
         <TextBlock x:Name="CharismaTextBlock" HorizontalAlignment="Left" Margin="499.667,205,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="66" Grid.Column="1"/>
         <Label x:Name="CharismaLabel" Content="Charisma" HorizontalAlignment="Left" Margin="439.667,204,0,0" VerticalAlignment="Top" FontSize="10" Grid.Column="1" ToolTip="How To Win Friends and Influence People, by Dale Carnegie."/>
-        <TextBlock x:Name="ContextInfoTextBlock" HorizontalAlignment="Left" Margin="265,166,0,0" TextWrapping="Wrap" Text="Select a field or statistic for more information." VerticalAlignment="Top" RenderTransformOrigin="0.707,1.083" Height="186" Width="129" FontSize="10" Grid.Column="1" FontWeight="ExtraBold" FontStretch="UltraExpanded"/>
+        <TextBlock x:Name="ContextInfoTextBlock" HorizontalAlignment="Left" Margin="265,166,0,0" TextWrapping="Wrap" Text="Select a field or statistic for more information." VerticalAlignment="Top" RenderTransformOrigin="0.707,1.083" Height="252" Width="129" FontSize="9" Grid.Column="1" FontWeight="ExtraBold" FontStretch="UltraExpanded" InputScope="Url"/>
         <Button x:Name="SaveProgressButton" Content="Save progress" HorizontalAlignment="Left" Margin="531,392,0,0" VerticalAlignment="Top" Width="84" Click="SaveProgressButton_Click" Grid.Column="1"/>
         <Grid x:Name="BonusGrid1" Grid.Column="1" Margin="577,45,174,195">
             <Grid.ColumnDefinitions>
@@ -195,13 +195,13 @@
         <Label x:Name="Religion_Label" Content="Religion" HorizontalAlignment="Left" VerticalAlignment="Top" Width="69" Grid.Column="1" Margin="620,329,0,0" Height="22" FontSize="8"/>
         <Label x:Name="SleightOfHand_Label" Content="Sleight of Hand" HorizontalAlignment="Left" VerticalAlignment="Top" Width="69" Grid.Column="1" Margin="620,351,0,0" Height="22" FontSize="8"/>
         <Label x:Name="Stealth_Label" Content="Stealth" HorizontalAlignment="Left" VerticalAlignment="Top" Width="69" Grid.Column="1" Margin="620,373,0,0" Height="22" FontSize="8"/>
-        <Label x:Name="Survival_Label" Content="Survival" HorizontalAlignment="Left" VerticalAlignment="Top" Width="69" Grid.Column="1" Margin="620,390,0,0" Height="22" FontSize="8"/>
+        <Label x:Name="Survival_Label" Content="Survival" HorizontalAlignment="Left" VerticalAlignment="Top" Width="69" Grid.Column="1" Margin="620,393,0,0" Height="22" FontSize="8"/>
         <Label x:Name="Athletics_Label" Content="Athletics" HorizontalAlignment="Left" VerticalAlignment="Top" Width="69" Grid.Column="1" Margin="620,85,0,0" Height="22" FontSize="8"/>
         <Label x:Name="Arcana_Label" Content="Arcana" HorizontalAlignment="Left" VerticalAlignment="Top" Width="69" Grid.Column="1" Margin="620,63,0,0" Height="22" FontSize="8"/>
         <Label x:Name="Acrobatics_Label" Content="Acrobatics" HorizontalAlignment="Left" VerticalAlignment="Top" Width="69" Grid.Column="1" Margin="620,15,0,0" Height="22" FontSize="8"/>
         <Label x:Name="AnimalHandling_Label" Content="Animal Handling" HorizontalAlignment="Left" VerticalAlignment="Top" Width="69" Grid.Column="1" Margin="620,39,0,0" Height="22" FontSize="8"/>
-        <ProgressBar x:Name="HitPointsBar" Grid.Column="1" HorizontalAlignment="Left" Height="10" Margin="160,15,0,0" VerticalAlignment="Top" Width="100" Minimum="1" Maximum="20" Value="0" Foreground="#FFB01D06"/>
-        <Label x:Name="Hit_Points_Label" Content="Hit Points" Grid.Column="1" HorizontalAlignment="Left" Margin="16,7,0,0" VerticalAlignment="Top" Width="110"/>
+        <ProgressBar x:Name="HitPointsBar" Grid.Column="1" HorizontalAlignment="Left" Height="10" Margin="184,17,0,0" VerticalAlignment="Top" Width="100" Minimum="1" Maximum="20" Value="0" Foreground="#FFB01D06"/>
+        <Label x:Name="Hit_Points_Label" Content="Hit Points" Grid.Column="1" HorizontalAlignment="Left" Margin="16,7,0,0" VerticalAlignment="Top" Width="110" ToolTip="This represent your characters total health. If it reaches 0, GG."/>
         <Image x:Name="Armor_Class_Icon" Grid.Column="1" HorizontalAlignment="Left" Height="24" Margin="421,13,0,0" VerticalAlignment="Top" Width="15" Source="shield.png" Stretch="Fill"/>
         <Label x:Name="Armor_Class_Label" Content="Armor Class" HorizontalAlignment="Left" Margin="438,14,0,0" VerticalAlignment="Top" FontSize="10" Grid.Column="1" ToolTip="Determines your damage reduction on incoming attacks. Higher values are better. Note that this value represents an un-armored character. If you have armor, you will need to add that armor's AC value to this to get your actual AC."/>
         <TextBlock x:Name="Armor_Class_Text_Box" HorizontalAlignment="Left" Margin="501,17,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="66" Grid.Column="1"/>
@@ -211,5 +211,6 @@
         <Image x:Name="Wisdom_Icon" Grid.Column="1" HorizontalAlignment="Left" Height="24" Margin="421,175,0,0" VerticalAlignment="Top" Width="15" Source="Wisdom.png"/>
         <Image x:Name="Charisma_Icon" Grid.Column="1" HorizontalAlignment="Left" Height="38" Margin="415,200,0,0" VerticalAlignment="Top" Width="25" Source="Charisma.png"/>
         <Image x:Name="Constitution_Icon" Grid.Column="1" HorizontalAlignment="Left" Height="24" Margin="421,107,0,0" VerticalAlignment="Top" Width="15" Source="Constitution2.png"/>
+        <TextBlock x:Name="HP_Textblock" Grid.Column="1" HorizontalAlignment="Left" Margin="160,12,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
     </Grid>
 </Window>

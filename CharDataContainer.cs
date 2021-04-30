@@ -13,14 +13,15 @@ namespace GroupProject5ECharCreator
     {
         //This class holds the members and function related to a "character", represented in the form of a character sheet.
 
+        //Name of the character, that the player chooses
         public string CharName { get; set; }
         
-
+        //The players race
         public Race race { get; set; }
 
         public string RaceName { get; set; }
 
-        public string Background { get; set; }
+        public Tuple<string,string> background;
         public int characterLevel;
 
         public CharacterClass characterClass;

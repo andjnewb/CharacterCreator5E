@@ -62,6 +62,7 @@ namespace GroupProject5ECharCreator
             Charisma_Display_Box.Text = charDataContainer.characterClass.Charisma.ToString();
             Class_Display_Box.Text = charDataContainer.characterClass.ClassName;
             Race_Display_Box.Text = charDataContainer.RaceName;
+            Background_Description_Textblock.Text = charDataContainer.background.Item2;
 
 
         }
