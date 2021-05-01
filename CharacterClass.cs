@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Security.Cryptography;
 
 
@@ -40,8 +36,8 @@ namespace GroupProject5ECharCreator
             if (ChangeTo == "Barbarian")
             {
                 ClassData = new Barbarian();
-                
-                
+
+
             }
 
             if (ChangeTo == "Bard")
@@ -104,7 +100,7 @@ namespace GroupProject5ECharCreator
                 ClassData = new Wizard();
             }
 
-            
+
             ClassData.hitPoints = Next(ClassData.hitDie.Item1, ClassData.hitDie.Item2);
         }
 
@@ -117,7 +113,7 @@ namespace GroupProject5ECharCreator
             {
                 results[i] = (Next(1, 8) + Next(1, 8) + Next(1, 8));
             }
-            
+
 
             Strength = results[0];
             Dexterity = results[1];
@@ -126,12 +122,12 @@ namespace GroupProject5ECharCreator
             Wisdom = results[4];
             Charisma = results[5];
 
-            
+
         }
 
-       
 
-        public  Int32 Next(Int32 minValue, Int32 maxValue)
+
+        public Int32 Next(Int32 minValue, Int32 maxValue)
         {
             byte[] bytes = new byte[6];
             RNGCryptoServiceProvider _rng = new RNGCryptoServiceProvider();

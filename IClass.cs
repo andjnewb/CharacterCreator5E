@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GroupProject5ECharCreator
 {
-    
+
     public interface IClass
     {
         //Interface for the actual concrete classes.
@@ -42,7 +38,7 @@ namespace GroupProject5ECharCreator
         {
             //strengthModifier += 2;
 
-            hitDie = new Tuple<int, int>(1,12);
+            hitDie = new Tuple<int, int>(1, 12);
         }
     }
 

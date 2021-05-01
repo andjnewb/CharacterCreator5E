@@ -1,12 +1,10 @@
-﻿using System.Windows;
-using System.Windows.Controls;
-
+﻿using System;
+using System.IO;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
-using System.IO;
-using System;
-using System.Collections.Generic;
-using System.Drawing;
+using System.Windows;
+using System.Windows.Controls;
+
 
 namespace GroupProject5ECharCreator
 {
@@ -21,9 +19,10 @@ namespace GroupProject5ECharCreator
         CharDataContainer CharContainer = new CharDataContainer();
         RaceFactory factory;
         System.Windows.Forms.PictureBox RacePicture = new System.Windows.Forms.PictureBox();
-
-
         
+
+
+
         public NewCharacterWindow()
         {
             InitializeComponent();
@@ -37,7 +36,7 @@ namespace GroupProject5ECharCreator
             Bonus_1_Combo_Box.Visibility = Visibility.Hidden;
             Bonus_2_Combo_Box.Visibility = Visibility.Hidden;
             Racial_Bonus_Selection_Label.Visibility = Visibility.Hidden;
-
+            
             //This sucks but its filling the Bonus boxes up with all of the stats
             Bonus_1_Combo_Box.Items.Add("Strength");
             Bonus_2_Combo_Box.Items.Add("Strength");
@@ -78,13 +77,13 @@ namespace GroupProject5ECharCreator
 
             Race_Image_Host.Child = RacePicture;
             RacePicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            
+            ContextInfoTextBlock.TextTrimming = TextTrimming.CharacterEllipsis;
         }
 
-       
-      
 
-       
+
+
+
 
         private void ClassListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -105,7 +104,7 @@ namespace GroupProject5ECharCreator
         {
 
 
-            
+
             foreach (var item in container.backgrounds)
             {
                 if (item.Item1 == BackgroundListBox.SelectedItem.ToString())
@@ -146,15 +145,15 @@ namespace GroupProject5ECharCreator
 
             foreach (var item in CharContainer.characterSkills.skills)
             {
-                
+
 
                 //Doing some awesome stuff with predicates and such. Honestly, after hours of debugging I still have no idea how this works. Let's just say that the ghost of Dennis Ritchie possessed me for a moment. 
                 switch (item.Item1)
                 {
                     //Example of what would happen if geohotz was also a crack addict.These int variables have stupid names because apparently being inside of a case is still in the same scope as the other cases.
                     case "Acrobatics":
-                        int value =  CharContainer.race.bonuses.Find(x => x.Item1 == RacialBonus.DexBonus).Item2 + item.Item2;
-                        Acrobatics_Text_Block.Text =  value.ToString();
+                        int value = CharContainer.race.bonuses.Find(x => x.Item1 == RacialBonus.DexBonus).Item2 + item.Item2;
+                        Acrobatics_Text_Block.Text = value.ToString();
                         break;
                     case "Animal Handling":
                         int value13 = CharContainer.race.bonuses.Find(x => x.Item1 == RacialBonus.WisdomBonus).Item2 + item.Item2;
@@ -185,7 +184,7 @@ namespace GroupProject5ECharCreator
                         Intimidation_Textblock.Text = value1322.ToString();
                         break;
                     case "Investigation":
-                        int value222= CharContainer.race.bonuses.Find(x => x.Item1 == RacialBonus.IntBonus).Item2 + item.Item2;
+                        int value222 = CharContainer.race.bonuses.Find(x => x.Item1 == RacialBonus.IntBonus).Item2 + item.Item2;
                         Investigation_Textblock.Text = value222.ToString();
                         break;
                     case "Medicine":
@@ -213,7 +212,7 @@ namespace GroupProject5ECharCreator
                         Religion_Textblock.Text = value266.ToString();
                         break;
                     case "Sleight of Hand":
-                        int value23= CharContainer.race.bonuses.Find(x => x.Item1 == RacialBonus.DexBonus).Item2 + item.Item2;
+                        int value23 = CharContainer.race.bonuses.Find(x => x.Item1 == RacialBonus.DexBonus).Item2 + item.Item2;
                         SleightOfHand_Textblock.Text = value23.ToString();
                         break;
                     case "Stealth":
@@ -241,13 +240,15 @@ namespace GroupProject5ECharCreator
 
         private void SaveProgressButton_Click(object sender, RoutedEventArgs e)
         {
+            
             SaveContainer();
+            ContextInfoTextBlock.Text = "Progress saved!";
         }
 
         private void RaceListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             Racial_Traits_Listbox.Items.Clear();
-            
+
 
 
 
@@ -326,7 +327,7 @@ namespace GroupProject5ECharCreator
                 case "Tiefling":
                     Bonus_1_Combo_Box.Visibility = Visibility.Hidden;
                     Bonus_2_Combo_Box.Visibility = Visibility.Hidden;
-                    CharContainer.RaceName = "Tielfing";
+                    CharContainer.RaceName = "Tiefling";
                     factory = new TieflingFactory();
                     CharContainer.race = factory.GetRace();
                     ModifyBonusBoxes();
@@ -354,11 +355,13 @@ namespace GroupProject5ECharCreator
 
             foreach (var image in container.raceImages)
             {
+                //Go through the Tuple list that was read in from our database, if the name of the player's race matches the name of the race image, then set it. also set the picture box so that the user knows it has changed.
                 if (CharContainer.RaceName == image.Item1)
                 {
                     
                     RacePicture.Image = image.Item2;
-                    
+                    CharContainer.characterAvatar = image.Item2;
+
                 }
             }
 
@@ -393,8 +396,8 @@ namespace GroupProject5ECharCreator
                         break;
                     case RacialBonus.WisdomBonus:
                         Wisdom_Bonus_Box.Content = "+" + bonus.Item2.ToString();
-                            break;
-                    default:break;
+                        break;
+                    default: break;
                 }
 
 
@@ -425,7 +428,7 @@ namespace GroupProject5ECharCreator
                     break;
 
 
-                default:break;
+                default: break;
             }
 
             switch (Bonus_2_Combo_Box.SelectedItem.ToString())
@@ -450,7 +453,7 @@ namespace GroupProject5ECharCreator
                 default: break;
             }
 
-            return new HalfElfFactory(bonus1,bonus2);
+            return new HalfElfFactory(bonus1, bonus2);
 
         }
 
@@ -465,7 +468,7 @@ namespace GroupProject5ECharCreator
                 Bonus_2_Combo_Box.SelectedIndex = 1;
             }
 
-            
+
             foreach (Label label in BonusGrid1.Children)
             {
                 label.Content = null;
@@ -481,7 +484,7 @@ namespace GroupProject5ECharCreator
 
         private void Bonus_2_Combo_Box_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            
+
 
 
             if (Bonus_1_Combo_Box.SelectedIndex == Bonus_2_Combo_Box.SelectedIndex)
@@ -516,10 +519,10 @@ namespace GroupProject5ECharCreator
             }
         }
 
-        
+
     }
 
-    
+
 
 
 }

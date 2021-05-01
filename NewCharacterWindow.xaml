@@ -46,7 +46,6 @@
         <Label x:Name="WisdomLabel" Content="Wisdom" HorizontalAlignment="Left" Margin="439.667,172,0,0" VerticalAlignment="Top" FontSize="10" Grid.Column="1" ToolTip="Your common sense and general knowledge of the world."/>
         <TextBlock x:Name="CharismaTextBlock" HorizontalAlignment="Left" Margin="499.667,205,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="66" Grid.Column="1"/>
         <Label x:Name="CharismaLabel" Content="Charisma" HorizontalAlignment="Left" Margin="439.667,204,0,0" VerticalAlignment="Top" FontSize="10" Grid.Column="1" ToolTip="How To Win Friends and Influence People, by Dale Carnegie."/>
-        <TextBlock x:Name="ContextInfoTextBlock" HorizontalAlignment="Left" Margin="265,166,0,0" TextWrapping="Wrap" Text="Select a field or statistic for more information." VerticalAlignment="Top" RenderTransformOrigin="0.707,1.083" Height="85" Width="129" FontSize="9" Grid.Column="1" FontWeight="ExtraBold" FontStretch="UltraExpanded" InputScope="Url" ScrollViewer.VerticalScrollBarVisibility="Auto"/>
         <Button x:Name="SaveProgressButton" Content="Save progress" HorizontalAlignment="Left" Margin="531,392,0,0" VerticalAlignment="Top" Width="84" Click="SaveProgressButton_Click" Grid.Column="1"/>
         <Grid x:Name="BonusGrid1" Grid.Column="1" Margin="577,45,174,195">
             <Grid.ColumnDefinitions>
@@ -210,7 +209,7 @@
         <Image x:Name="Charisma_Icon" Grid.Column="1" HorizontalAlignment="Left" Height="38" Margin="415,200,0,0" VerticalAlignment="Top" Width="25" Source="Charisma.png"/>
         <Image x:Name="Constitution_Icon" Grid.Column="1" HorizontalAlignment="Left" Height="24" Margin="421,107,0,0" VerticalAlignment="Top" Width="15" Source="Constitution2.png"/>
         <TextBlock x:Name="HP_Textblock" Grid.Column="1" HorizontalAlignment="Left" Margin="160,12,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
-        <WindowsFormsHost Grid.ColumnSpan="2" Height="100" Width="100"/>
-        <WindowsFormsHost x:Name="Race_Image_Host" Grid.Column="1" HorizontalAlignment="Left" Height="100" Margin="274,274,0,0" VerticalAlignment="Top" Width="100"/>
+        <WindowsFormsHost x:Name="Race_Image_Host" Grid.Column="1" HorizontalAlignment="Left" Height="100" Margin="16,307,0,0" VerticalAlignment="Top" Width="100"/>
+        <TextBlock x:Name="ContextInfoTextBlock" TextWrapping="Wrap" Text="Select a field or statistic for more information." RenderTransformOrigin="0.707,1.083" FontSize="9" FontWeight="ExtraBold" FontStretch="UltraExpanded" InputScope="Url" ScrollViewer.VerticalScrollBarVisibility="Auto"  ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.CanContentScroll="True" Grid.Column="1" Margin="281,275,416,64"/>
     </Grid>
 </Window>

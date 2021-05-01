@@ -1,10 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Runtime.Serialization;
-using System.Runtime.Serialization.Formatters.Binary;
+using System.Drawing;
 
 namespace GroupProject5ECharCreator
 {
@@ -15,14 +10,16 @@ namespace GroupProject5ECharCreator
 
         //Name of the character, that the player chooses
         public string CharName { get; set; }
-        
+
         //The players race
         public Race race { get; set; }
 
         public string RaceName { get; set; }
 
-        public Tuple<string,string> background;
+        public Tuple<string, string> background;
         public int characterLevel;
+
+        public Image characterAvatar;
 
         public CharacterClass characterClass;
         public Skills characterSkills;
@@ -31,15 +28,15 @@ namespace GroupProject5ECharCreator
         {
             characterClass = new CharacterClass();
             characterLevel = 1;
-            
-            
+
+
         }
 
         public void SetModifiers()
         {
             //Set the modifiers in CharacterClass, will be useful for later.
 
-            if (race== null)
+            if (race == null)
                 return;
 
             foreach (var item in race.bonuses)
@@ -130,7 +127,7 @@ namespace GroupProject5ECharCreator
 
         }
 
-        
+
     }
 
 }

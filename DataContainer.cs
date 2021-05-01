@@ -1,12 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Data.OleDb;
-using System.IO;
 using System.Drawing;
-using Microsoft.Office.Interop.Access.Dao;
+using System.IO;
 
 
 
@@ -23,23 +19,25 @@ namespace GroupProject5ECharCreator
 
         public List<String> races;
         public List<String> classes;
-        public List<Tuple<string,string>> backgrounds;
+        public List<Tuple<string, string>> backgrounds;
         public List<Tuple<string, Image>> raceImages;
-        public Image test;
+        public Image test;//Not used
 
 
         public DataContainer()
         {
-             connection = new OleDbConnection(
-            "Provider=Microsoft.ACE.OLEDB.12.0;" +
-            "Data Source=" + db_name + ";" +
-            "Mode=Share Deny None");
-            
+            //This may not work on certain systems.  If you're having issues, try changing the OLEDB version or something lol
+            connection = new OleDbConnection(
+           "Provider=Microsoft.ACE.OLEDB.12.0;" +
+           "Data Source=" + db_name + ";" +
+           "Mode=Share Deny None");
+
+
             races = new List<string>();
             classes = new List<string>();
             backgrounds = new List<Tuple<string, string>>();
             raceImages = new List<Tuple<string, Image>>();
-            
+
             LoadRaces();
             LoadClasses();
             LoadBackgrounds();
@@ -89,7 +87,7 @@ namespace GroupProject5ECharCreator
 
         void LoadBackgrounds()
         {
-            //This function will load all of the data from the Background column in the Backgrounds table
+            //This function will load all of the data from the Background name column and the background description column  in the Backgrounds table
 
             List<string> backgroundNames = new List<string>();
             List<string> backgroundsDescriptions = new List<string>();
@@ -99,7 +97,7 @@ namespace GroupProject5ECharCreator
 
             reader = command.ExecuteReader();
 
-            
+
 
             //Loops through the entire column Class
             while (reader.Read())
@@ -107,8 +105,8 @@ namespace GroupProject5ECharCreator
                 //Add the names charlatan urchin etc. to a list
                 backgroundNames.Add(reader.GetString(0));
 
-                
-                
+
+
             }
 
             command = new OleDbCommand("SELECT Description FROM Backgrounds ", connection);
@@ -126,7 +124,7 @@ namespace GroupProject5ECharCreator
             }
 
 
-           
+
             reader.Close();
             connection.Close();
             command = null;
@@ -135,14 +133,15 @@ namespace GroupProject5ECharCreator
 
         public void GetRaceImages()
         {
-            //NOT CURRENTLY IN USE
+            //This function works by getting the bitmap information from the database in the form of a byte array. It then converts that array into an Image, and loads it into the temporary lists below.  At the the end, each value in these lists is copied to raceImages 
+            //as a tuple pair. This was not trivial to get working, and everything I found online didn't work. Note that the order in which these are loaded is important, and we should probably find a we to exclude the temporary lists to avoid this ordering issue. 
             List<string> RaceNames = new List<string>();
             List<Image> RaceImages = new List<Image>();
 
 
             command = new OleDbCommand("SELECT Race FROM Races", connection);
             connection.Open();
-            
+
 
 
             reader = command.ExecuteReader();
@@ -163,15 +162,15 @@ namespace GroupProject5ECharCreator
 
             while (reader.Read())
             {
-
+                //This byte array stores in the information for the bitmap image. probably shouldn't have it an arbitraily large size but eh it works for now.
                 Byte[] buffer = new Byte[10000];
 
                 buffer = (byte[])reader.GetValue(0);
 
-                Image image = ByteArrayToImage(buffer);
+                Image image = ByteArrayToImage(buffer);//Convert the byte array to an Image format, so that we set it equal to the Race_Image_Box easily in NewCharacterWindow
 
                 RaceImages.Add(image);
-                
+
 
             }
 
@@ -180,18 +179,21 @@ namespace GroupProject5ECharCreator
                 raceImages.Add(Tuple.Create(RaceNames[i], RaceImages[i]));
             }
 
-            
-            
+            reader.Close();
+            connection.Close();
+            command = null;
 
-            
+
+
 
         }
 
         Image ByteArrayToImage(byte[] b)
         {
+            //Takes a byte array, converts it to an Image. 
             ImageConverter converter = new ImageConverter();
             Image img = (Image)converter.ConvertFrom(b);
-            
+
             return img;
         }
 

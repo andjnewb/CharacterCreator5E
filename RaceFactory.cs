@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GroupProject5ECharCreator
 {
@@ -22,7 +19,7 @@ namespace GroupProject5ECharCreator
     [Serializable]
     public class RacialTraitsContainer
     {
-        public List<(string, string)> dwarfTraits = new List<(string, string)> 
+        public List<(string, string)> dwarfTraits = new List<(string, string)>
         {
             ("Darkvision", "You touch a willing creature to grant it the ability to see in the dark. For the duration, that creature has darkvision out to a range of 60 feet."),
             ("Dwarven Resilience","You have advantage on Saving Throws against poison, and you have Resistance against poison damage."),
@@ -33,7 +30,7 @@ namespace GroupProject5ECharCreator
 
         };
 
-        public List<(string, string)> halfelfTraits = new List<(string, string)> 
+        public List<(string, string)> halfelfTraits = new List<(string, string)>
         {
             ("Darkvision", "You touch a willing creature to grant it the ability to see in the dark. For the duration, that creature has darkvision out to a range of 60 feet."),
             ("Fey Ancestry","You have advantage on Saving Throws against being Charmed, and magic can’t put you to sleep."),
@@ -41,7 +38,7 @@ namespace GroupProject5ECharCreator
             ("Languages","Common, Elvish")
         };
 
-        public List<(string, string)> elfTraits = new List<(string, string)> 
+        public List<(string, string)> elfTraits = new List<(string, string)>
         {
             ("Darkvision", "You touch a willing creature to grant it the ability to see in the dark. For the duration, that creature has darkvision out to a range of 60 feet."),
             ("Keen Senses","You have proficiency in the Perception skill."),
@@ -118,7 +115,7 @@ namespace GroupProject5ECharCreator
                 case "Halfling":
                     return halflingTraits;
 
-                default:break;
+                default: break;
             }
 
             return null;
@@ -147,9 +144,9 @@ namespace GroupProject5ECharCreator
         //This class inherits from the abstract class Race
         public Dwarf(int ConstBonusAmount)
         {
-            
 
-            bonuses =  new List<(RacialBonus, int)> { (RacialBonus.ConstBonus, ConstBonusAmount)};//This is our list of tuples. Dwarves, for examples. get a constitution bonus of +2. For some reason, I can't get .Add() to work for this list so we're going with initializing it here for now.
+
+            bonuses = new List<(RacialBonus, int)> { (RacialBonus.ConstBonus, ConstBonusAmount) };//This is our list of tuples. Dwarves, for examples. get a constitution bonus of +2. For some reason, I can't get .Add() to work for this list so we're going with initializing it here for now.
             RaceName = "Dwarf"; //Might not be necessary, but could be useful for later.
             RaceDescription = "Dwarves are hardy masters of both stone and metal. They make excellent fighters.";
             racialTraits = container.GetRacialTraits(RaceName);
@@ -161,11 +158,11 @@ namespace GroupProject5ECharCreator
     public class Elf : Race
     {
         //This class inherits from the abstract class Race
-       
+
         public Elf(int DexterityBonusAmount)
         {
-            
-            
+
+
             bonuses = new List<(RacialBonus, int)> { (RacialBonus.DexBonus, DexterityBonusAmount) };
             RaceName = "Elf";
             RaceDescription = "Graceful, magical, and one with nature, Elves are excellent fighters with innate abilities that make them in-tune with the natural world.";
@@ -174,23 +171,23 @@ namespace GroupProject5ECharCreator
     }
 
     [Serializable]
-    public class Dragonborn : Race 
+    public class Dragonborn : Race
     {
         //Dragonborn get two racial bonuses. This is a work around.
 
 
         public Dragonborn(int StrBonusAmount, int CharismaBonusAmount)
         {
-            
 
 
-            bonuses = new List<(RacialBonus, int)> { (RacialBonus.StrBonus, StrBonusAmount) , (RacialBonus.CharismaBonus, CharismaBonusAmount) };
+
+            bonuses = new List<(RacialBonus, int)> { (RacialBonus.StrBonus, StrBonusAmount), (RacialBonus.CharismaBonus, CharismaBonusAmount) };
             RaceName = "Dragonborn";
             RaceDescription = "Dragonborn are known for their striking appearance, with a Humanoid body covered in scales. They are strong and charismatic.";
             racialTraits = container.GetRacialTraits(RaceName);
         }
 
-   
+
 
     }
 
@@ -198,11 +195,11 @@ namespace GroupProject5ECharCreator
     public class Gnome : Race
     {
         //This class inherits from the abstract class Race
-        
+
         public Gnome(int IntBonusAmount)
         {
-       
-           
+
+
 
             bonuses = new List<(RacialBonus, int)> { (RacialBonus.IntBonus, IntBonusAmount) };
             RaceName = "Gnome";
@@ -212,14 +209,14 @@ namespace GroupProject5ECharCreator
     }
 
     [Serializable]
-    public class HalfElf : Race 
+    public class HalfElf : Race
     {
         //The situation is different for a half-elf, since they get to pick 2 bonuses to add +1 to, in addition to their inherent +2 to charisma. Half-elf OP
 
 
         public HalfElf(RacialBonus choice1, RacialBonus choice2)
         {
-            bonuses = new List<(RacialBonus, int)> { (RacialBonus.CharismaBonus, 2) ,(choice1, 1), (choice2,1)};
+            bonuses = new List<(RacialBonus, int)> { (RacialBonus.CharismaBonus, 2), (choice1, 1), (choice2, 1) };
             RaceName = "Half Elf";
             RaceDescription = "Half-elves are the perfect mixture of Human and Elf. They are not confined by a zealous reverance of nature, nor a lust for technological advancement.";
             racialTraits = container.GetRacialTraits(RaceName);
@@ -229,12 +226,12 @@ namespace GroupProject5ECharCreator
     }
 
     [Serializable]
-    public class Halfling : Race 
+    public class Halfling : Race
     {
         public Halfling(int DexBonusAmount)
         {
             //Halfings always get +2 to Dex but we have it as a parameter just in case you wanted to modify these easily from the factory
-            bonuses = new List<(RacialBonus, int)> {(RacialBonus.DexBonus, DexBonusAmount) };
+            bonuses = new List<(RacialBonus, int)> { (RacialBonus.DexBonus, DexBonusAmount) };
             RaceName = "Halfling";
             RaceDescription = "Haflings survive in a world of giants by the nimbleness of their fingers, and almost all of their race are brave even in the face of certain demise.";
             racialTraits = container.GetRacialTraits(RaceName);
@@ -261,12 +258,12 @@ namespace GroupProject5ECharCreator
         public Human(int AbilityBonusAmount)
         {
             //Humans get +1 to every stat, but we have a parameter here in case you wanted to easily make an overpowered or weaker human.
-            bonuses = new List<(RacialBonus, int)> 
-            { 
-                (RacialBonus.StrBonus, AbilityBonusAmount), 
-                (RacialBonus.ConstBonus, AbilityBonusAmount), 
-                (RacialBonus.DexBonus, AbilityBonusAmount), 
-                (RacialBonus.IntBonus, AbilityBonusAmount), 
+            bonuses = new List<(RacialBonus, int)>
+            {
+                (RacialBonus.StrBonus, AbilityBonusAmount),
+                (RacialBonus.ConstBonus, AbilityBonusAmount),
+                (RacialBonus.DexBonus, AbilityBonusAmount),
+                (RacialBonus.IntBonus, AbilityBonusAmount),
                 (RacialBonus.WisdomBonus, AbilityBonusAmount),
                 (RacialBonus.CharismaBonus, AbilityBonusAmount)
             };
@@ -300,9 +297,9 @@ namespace GroupProject5ECharCreator
     [Serializable]
     public class DwarfFactory : RaceFactory
     {
-        public  DwarfFactory()
+        public DwarfFactory()
         {
-            
+
         }
         public override Race GetRace()
         {
@@ -341,7 +338,7 @@ namespace GroupProject5ECharCreator
 
     }
     [Serializable]
-    public class GnomeFactory : RaceFactory 
+    public class GnomeFactory : RaceFactory
     {
         public GnomeFactory()
         { }
